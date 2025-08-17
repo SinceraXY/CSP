@@ -1,0 +1,397 @@
+\contentsline {chapter}{\numberline {第一章}一维数组}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}201604-1 折点计数}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}题目描述}{1}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}输入格式}{1}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}输出格式}{2}{subsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.1.4}样例输入}{2}{subsection.1.1.4}%
+\contentsline {subsection}{\numberline {1.1.5}样例输出}{2}{subsection.1.1.5}%
+\contentsline {subsection}{\numberline {1.1.6}评测用例规模与约定}{2}{subsection.1.1.6}%
+\contentsline {subsection}{\numberline {1.1.7}对讲义中代码的点评或纠错}{2}{subsection.1.1.7}%
+\contentsline {subsection}{\numberline {1.1.8}自己原创的代码的点评与注释}{2}{subsection.1.1.8}%
+\contentsline {section}{\numberline {1.2}201609-1 最大波动}{3}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}题目描述}{3}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}输入格式}{3}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}输出格式}{3}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}样例输入}{3}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}样例输出}{4}{subsection.1.2.5}%
+\contentsline {subsection}{\numberline {1.2.6}样例解释}{4}{subsection.1.2.6}%
+\contentsline {subsection}{\numberline {1.2.7}评测用例规模与约定}{4}{subsection.1.2.7}%
+\contentsline {subsection}{\numberline {1.2.8}对讲义中代码的点评或纠错}{4}{subsection.1.2.8}%
+\contentsline {subsection}{\numberline {1.2.9}自己原创的代码的点评与注释}{4}{subsection.1.2.9}%
+\contentsline {section}{\numberline {1.3}201809-1 卖菜}{5}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}题目描述}{5}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}输入格式}{5}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}输出格式}{5}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}样例输入}{5}{subsection.1.3.4}%
+\contentsline {subsection}{\numberline {1.3.5}样例输出}{6}{subsection.1.3.5}%
+\contentsline {subsection}{\numberline {1.3.6}评测用例规模与约定}{6}{subsection.1.3.6}%
+\contentsline {subsection}{\numberline {1.3.7}对讲义中代码的点评或纠错}{6}{subsection.1.3.7}%
+\contentsline {subsection}{\numberline {1.3.8}自己原创的代码的点评与注释}{6}{subsection.1.3.8}%
+\contentsline {section}{\numberline {1.4}201903-1 小中大}{7}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}题目背景}{7}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}题目描述}{7}{subsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.4.3}输入格式}{7}{subsection.1.4.3}%
+\contentsline {subsection}{\numberline {1.4.4}输出格式}{7}{subsection.1.4.4}%
+\contentsline {subsection}{\numberline {1.4.5}样例输入}{7}{subsection.1.4.5}%
+\contentsline {subsection}{\numberline {1.4.6}样例输出}{8}{subsection.1.4.6}%
+\contentsline {subsection}{\numberline {1.4.7}评测用例规模与约定}{8}{subsection.1.4.7}%
+\contentsline {subsection}{\numberline {1.4.8}对讲义中代码的点评或纠错}{8}{subsection.1.4.8}%
+\contentsline {subsection}{\numberline {1.4.9}自己原创的代码的点评与注释}{8}{subsection.1.4.9}%
+\contentsline {section}{\numberline {1.5}202203-1 未初始化警告}{9}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}题目背景}{9}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}问题描述}{9}{subsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.5.3}输入格式}{9}{subsection.1.5.3}%
+\contentsline {subsection}{\numberline {1.5.4}输出格式}{9}{subsection.1.5.4}%
+\contentsline {subsection}{\numberline {1.5.5}样例 1 输入}{9}{subsection.1.5.5}%
+\contentsline {subsection}{\numberline {1.5.6}样例 1 输出}{9}{subsection.1.5.6}%
+\contentsline {subsection}{\numberline {1.5.7}样例解释}{9}{subsection.1.5.7}%
+\contentsline {subsection}{\numberline {1.5.8}评测用例规模与约定}{9}{subsection.1.5.8}%
+\contentsline {subsection}{\numberline {1.5.9}对讲义中代码的点评或纠错}{9}{subsection.1.5.9}%
+\contentsline {subsection}{\numberline {1.5.10}自己原创的代码的点评与注释}{10}{subsection.1.5.10}%
+\contentsline {section}{\numberline {1.6}201703-1 分蛋糕}{11}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}题目背景}{11}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}问题描述}{11}{subsection.1.6.2}%
+\contentsline {subsection}{\numberline {1.6.3}输入格式}{11}{subsection.1.6.3}%
+\contentsline {subsection}{\numberline {1.6.4}输出格式}{11}{subsection.1.6.4}%
+\contentsline {subsection}{\numberline {1.6.5}样例 1 输入}{11}{subsection.1.6.5}%
+\contentsline {subsection}{\numberline {1.6.6}样例 1 输出}{11}{subsection.1.6.6}%
+\contentsline {subsection}{\numberline {1.6.7}样例解释}{11}{subsection.1.6.7}%
+\contentsline {subsection}{\numberline {1.6.8}评测用例规模与约定}{11}{subsection.1.6.8}%
+\contentsline {subsection}{\numberline {1.6.9}对讲义中代码的点评或纠错}{11}{subsection.1.6.9}%
+\contentsline {subsection}{\numberline {1.6.10}自己原创的代码的点评与注释}{12}{subsection.1.6.10}%
+\contentsline {section}{\numberline {1.7}201612-1 中间数}{13}{section.1.7}%
+\contentsline {subsection}{\numberline {1.7.1}题目背景}{13}{subsection.1.7.1}%
+\contentsline {subsection}{\numberline {1.7.2}问题描述}{13}{subsection.1.7.2}%
+\contentsline {subsection}{\numberline {1.7.3}输入格式}{13}{subsection.1.7.3}%
+\contentsline {subsection}{\numberline {1.7.4}输出格式}{13}{subsection.1.7.4}%
+\contentsline {subsection}{\numberline {1.7.5}样例 1 输入}{13}{subsection.1.7.5}%
+\contentsline {subsection}{\numberline {1.7.6}样例 1 输出}{13}{subsection.1.7.6}%
+\contentsline {subsection}{\numberline {1.7.7}样例解释}{13}{subsection.1.7.7}%
+\contentsline {subsection}{\numberline {1.7.8}评测用例规模与约定}{13}{subsection.1.7.8}%
+\contentsline {subsection}{\numberline {1.7.9}对讲义中代码的点评或纠错}{13}{subsection.1.7.9}%
+\contentsline {subsection}{\numberline {1.7.10}自己原创的代码的点评与注释}{13}{subsection.1.7.10}%
+\contentsline {section}{\numberline {1.8}201812-1 小明上学}{15}{section.1.8}%
+\contentsline {subsection}{\numberline {1.8.1}题目背景}{15}{subsection.1.8.1}%
+\contentsline {subsection}{\numberline {1.8.2}问题描述}{15}{subsection.1.8.2}%
+\contentsline {subsection}{\numberline {1.8.3}输入格式}{15}{subsection.1.8.3}%
+\contentsline {subsection}{\numberline {1.8.4}输出格式}{15}{subsection.1.8.4}%
+\contentsline {subsection}{\numberline {1.8.5}样例 1 输入}{15}{subsection.1.8.5}%
+\contentsline {subsection}{\numberline {1.8.6}样例 1 输出}{16}{subsection.1.8.6}%
+\contentsline {subsection}{\numberline {1.8.7}样例解释}{16}{subsection.1.8.7}%
+\contentsline {subsection}{\numberline {1.8.8}评测用例规模与约定}{16}{subsection.1.8.8}%
+\contentsline {subsection}{\numberline {1.8.9}对讲义中代码的点评或纠错}{16}{subsection.1.8.9}%
+\contentsline {subsection}{\numberline {1.8.10}自己原创的代码的点评与注释}{16}{subsection.1.8.10}%
+\contentsline {section}{\numberline {1.9}201812-2 小明放学}{17}{section.1.9}%
+\contentsline {subsection}{\numberline {1.9.1}题目背景}{17}{subsection.1.9.1}%
+\contentsline {subsection}{\numberline {1.9.2}问题描述}{17}{subsection.1.9.2}%
+\contentsline {subsection}{\numberline {1.9.3}输入格式}{18}{subsection.1.9.3}%
+\contentsline {subsection}{\numberline {1.9.4}输出格式}{18}{subsection.1.9.4}%
+\contentsline {subsection}{\numberline {1.9.5}样例 1 输入}{18}{subsection.1.9.5}%
+\contentsline {subsection}{\numberline {1.9.6}样例 1 输出}{18}{subsection.1.9.6}%
+\contentsline {subsection}{\numberline {1.9.7}样例解释}{18}{subsection.1.9.7}%
+\contentsline {subsection}{\numberline {1.9.8}评测用例规模与约定}{18}{subsection.1.9.8}%
+\contentsline {subsection}{\numberline {1.9.9}对讲义中代码的点评或纠错}{19}{subsection.1.9.9}%
+\contentsline {subsection}{\numberline {1.9.10}自己原创的代码的点评与注释}{19}{subsection.1.9.10}%
+\contentsline {section}{\numberline {1.10}202006-1 线性分类器}{20}{section.1.10}%
+\contentsline {subsection}{\numberline {1.10.1}问题描述}{20}{subsection.1.10.1}%
+\contentsline {subsection}{\numberline {1.10.2}输入格式}{20}{subsection.1.10.2}%
+\contentsline {subsection}{\numberline {1.10.3}输出格式}{20}{subsection.1.10.3}%
+\contentsline {subsection}{\numberline {1.10.4}样例输入}{20}{subsection.1.10.4}%
+\contentsline {subsection}{\numberline {1.10.5}样例输出}{21}{subsection.1.10.5}%
+\contentsline {subsection}{\numberline {1.10.6}样例解释}{21}{subsection.1.10.6}%
+\contentsline {subsection}{\numberline {1.10.7}子任务}{21}{subsection.1.10.7}%
+\contentsline {subsection}{\numberline {1.10.8}对讲义中代码的点评或纠错}{21}{subsection.1.10.8}%
+\contentsline {subsection}{\numberline {1.10.9}自己原创的代码的点评与注释}{22}{subsection.1.10.9}%
+\contentsline {section}{\numberline {1.11}201509-2 日期计算}{23}{section.1.11}%
+\contentsline {subsection}{\numberline {1.11.1}题目背景}{23}{subsection.1.11.1}%
+\contentsline {subsection}{\numberline {1.11.2}问题描述}{23}{subsection.1.11.2}%
+\contentsline {subsection}{\numberline {1.11.3}输入格式}{23}{subsection.1.11.3}%
+\contentsline {subsection}{\numberline {1.11.4}输出格式}{23}{subsection.1.11.4}%
+\contentsline {subsection}{\numberline {1.11.5}样例 1 输入}{23}{subsection.1.11.5}%
+\contentsline {subsection}{\numberline {1.11.6}样例 1 输出}{23}{subsection.1.11.6}%
+\contentsline {subsection}{\numberline {1.11.7}样例解释}{23}{subsection.1.11.7}%
+\contentsline {subsection}{\numberline {1.11.8}评测用例规模与约定}{23}{subsection.1.11.8}%
+\contentsline {subsection}{\numberline {1.11.9}对讲义中代码的点评或纠错}{23}{subsection.1.11.9}%
+\contentsline {subsection}{\numberline {1.11.10}自己原创的代码的点评与注释}{24}{subsection.1.11.10}%
+\contentsline {section}{\numberline {1.12}201503-3 节日}{25}{section.1.12}%
+\contentsline {subsection}{\numberline {1.12.1}题目背景}{25}{subsection.1.12.1}%
+\contentsline {subsection}{\numberline {1.12.2}问题描述}{25}{subsection.1.12.2}%
+\contentsline {subsection}{\numberline {1.12.3}输入格式}{25}{subsection.1.12.3}%
+\contentsline {subsection}{\numberline {1.12.4}输出格式}{25}{subsection.1.12.4}%
+\contentsline {subsection}{\numberline {1.12.5}样例 1 输入}{25}{subsection.1.12.5}%
+\contentsline {subsection}{\numberline {1.12.6}样例 1 输出}{25}{subsection.1.12.6}%
+\contentsline {subsection}{\numberline {1.12.7}样例解释}{25}{subsection.1.12.7}%
+\contentsline {subsection}{\numberline {1.12.8}评测用例规模与约定}{25}{subsection.1.12.8}%
+\contentsline {subsection}{\numberline {1.12.9}对讲义中代码的点评或纠错}{25}{subsection.1.12.9}%
+\contentsline {subsection}{\numberline {1.12.10}自己原创的代码的点评与注释}{26}{subsection.1.12.10}%
+\contentsline {chapter}{\numberline {第二章}STL入门与vector}{29}{chapter.2}%
+\contentsline {section}{\numberline {2.1}201712-2 游戏}{29}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}题目背景}{29}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}问题描述}{29}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}输入格式}{29}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}输出格式}{29}{subsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.1.5}样例 1 输入}{29}{subsection.2.1.5}%
+\contentsline {subsection}{\numberline {2.1.6}样例 1 输出}{29}{subsection.2.1.6}%
+\contentsline {subsection}{\numberline {2.1.7}样例解释}{29}{subsection.2.1.7}%
+\contentsline {subsection}{\numberline {2.1.8}评测用例规模与约定}{29}{subsection.2.1.8}%
+\contentsline {subsection}{\numberline {2.1.9}对讲义中代码的点评或纠错}{29}{subsection.2.1.9}%
+\contentsline {subsection}{\numberline {2.1.10}自己原创的代码的点评与注释}{30}{subsection.2.1.10}%
+\contentsline {section}{\numberline {2.2}202009-2 风险人群筛查}{31}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}题目背景}{31}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}问题描述}{31}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}输入格式}{31}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}输出格式}{31}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}样例 1 输入}{31}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.6}样例 1 输出}{31}{subsection.2.2.6}%
+\contentsline {subsection}{\numberline {2.2.7}样例解释}{31}{subsection.2.2.7}%
+\contentsline {subsection}{\numberline {2.2.8}评测用例规模与约定}{31}{subsection.2.2.8}%
+\contentsline {subsection}{\numberline {2.2.9}对讲义中代码的点评或纠错}{31}{subsection.2.2.9}%
+\contentsline {subsection}{\numberline {2.2.10}自己原创的代码的点评与注释}{31}{subsection.2.2.10}%
+\contentsline {section}{\numberline {2.3}201503-1 图像旋转}{33}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}题目背景}{33}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}问题描述}{33}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}输入格式}{33}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}输出格式}{33}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}样例 1 输入}{33}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.3.6}样例 1 输出}{33}{subsection.2.3.6}%
+\contentsline {subsection}{\numberline {2.3.7}样例解释}{33}{subsection.2.3.7}%
+\contentsline {subsection}{\numberline {2.3.8}评测用例规模与约定}{33}{subsection.2.3.8}%
+\contentsline {subsection}{\numberline {2.3.9}对讲义中代码的点评或纠错}{33}{subsection.2.3.9}%
+\contentsline {subsection}{\numberline {2.3.10}自己原创的代码的点评与注释}{34}{subsection.2.3.10}%
+\contentsline {section}{\numberline {2.4}201512-2 消除类游戏}{35}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}题目背景}{35}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}问题描述}{35}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}输入格式}{35}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}输出格式}{35}{subsection.2.4.4}%
+\contentsline {subsection}{\numberline {2.4.5}样例 1 输入}{35}{subsection.2.4.5}%
+\contentsline {subsection}{\numberline {2.4.6}样例 1 输出}{35}{subsection.2.4.6}%
+\contentsline {subsection}{\numberline {2.4.7}样例解释}{35}{subsection.2.4.7}%
+\contentsline {subsection}{\numberline {2.4.8}评测用例规模与约定}{35}{subsection.2.4.8}%
+\contentsline {subsection}{\numberline {2.4.9}对讲义中代码的点评或纠错}{35}{subsection.2.4.9}%
+\contentsline {subsection}{\numberline {2.4.10}自己原创的代码的点评与注释}{36}{subsection.2.4.10}%
+\contentsline {section}{\numberline {2.5}201604-2 俄罗斯方块}{37}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}题目背景}{37}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}问题描述}{37}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}输入格式}{37}{subsection.2.5.3}%
+\contentsline {subsection}{\numberline {2.5.4}输出格式}{37}{subsection.2.5.4}%
+\contentsline {subsection}{\numberline {2.5.5}样例 1 输入}{37}{subsection.2.5.5}%
+\contentsline {subsection}{\numberline {2.5.6}样例 1 输出}{37}{subsection.2.5.6}%
+\contentsline {subsection}{\numberline {2.5.7}样例解释}{37}{subsection.2.5.7}%
+\contentsline {subsection}{\numberline {2.5.8}评测用例规模与约定}{37}{subsection.2.5.8}%
+\contentsline {subsection}{\numberline {2.5.9}对讲义中代码的点评或纠错}{37}{subsection.2.5.9}%
+\contentsline {subsection}{\numberline {2.5.10}自己原创的代码的点评与注释}{38}{subsection.2.5.10}%
+\contentsline {subsection}{\numberline {2.5.11}你推荐的代码}{40}{subsection.2.5.11}%
+\contentsline {subsection}{\numberline {2.5.12}网上的代码}{40}{subsection.2.5.12}%
+\contentsline {section}{\numberline {2.6}202305-2 矩阵运算}{42}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}题目背景}{42}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}问题描述}{42}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.6.3}输入格式}{42}{subsection.2.6.3}%
+\contentsline {subsection}{\numberline {2.6.4}输出格式}{42}{subsection.2.6.4}%
+\contentsline {subsection}{\numberline {2.6.5}样例 1 输入}{42}{subsection.2.6.5}%
+\contentsline {subsection}{\numberline {2.6.6}样例 1 输出}{42}{subsection.2.6.6}%
+\contentsline {subsection}{\numberline {2.6.7}样例解释}{42}{subsection.2.6.7}%
+\contentsline {subsection}{\numberline {2.6.8}评测用例规模与约定}{42}{subsection.2.6.8}%
+\contentsline {subsection}{\numberline {2.6.9}对讲义中代码的点评或纠错}{42}{subsection.2.6.9}%
+\contentsline {subsection}{\numberline {2.6.10}自己原创的代码的点评与注释}{42}{subsection.2.6.10}%
+\contentsline {section}{\numberline {2.7}201403-2 窗口}{44}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}题目背景}{44}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2}问题描述}{44}{subsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.7.3}输入格式}{44}{subsection.2.7.3}%
+\contentsline {subsection}{\numberline {2.7.4}输出格式}{44}{subsection.2.7.4}%
+\contentsline {subsection}{\numberline {2.7.5}样例 1 输入}{44}{subsection.2.7.5}%
+\contentsline {subsection}{\numberline {2.7.6}样例 1 输出}{44}{subsection.2.7.6}%
+\contentsline {subsection}{\numberline {2.7.7}样例解释}{44}{subsection.2.7.7}%
+\contentsline {subsection}{\numberline {2.7.8}评测用例规模与约定}{44}{subsection.2.7.8}%
+\contentsline {subsection}{\numberline {2.7.9}对讲义中代码的点评或纠错}{44}{subsection.2.7.9}%
+\contentsline {subsection}{\numberline {2.7.10}自己原创的代码的点评与注释}{44}{subsection.2.7.10}%
+\contentsline {subsection}{\numberline {2.7.11}你推荐的代码}{46}{subsection.2.7.11}%
+\contentsline {subsection}{\numberline {2.7.12}网上的代码}{46}{subsection.2.7.12}%
+\contentsline {section}{\numberline {2.8}201803-2 碰撞的小球}{48}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}题目背景}{48}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {2.8.2}问题描述}{48}{subsection.2.8.2}%
+\contentsline {subsection}{\numberline {2.8.3}输入格式}{48}{subsection.2.8.3}%
+\contentsline {subsection}{\numberline {2.8.4}输出格式}{48}{subsection.2.8.4}%
+\contentsline {subsection}{\numberline {2.8.5}样例 1 输入}{48}{subsection.2.8.5}%
+\contentsline {subsection}{\numberline {2.8.6}样例 1 输出}{48}{subsection.2.8.6}%
+\contentsline {subsection}{\numberline {2.8.7}样例解释}{48}{subsection.2.8.7}%
+\contentsline {subsection}{\numberline {2.8.8}评测用例规模与约定}{48}{subsection.2.8.8}%
+\contentsline {subsection}{\numberline {2.8.9}对讲义中代码的点评或纠错}{48}{subsection.2.8.9}%
+\contentsline {subsection}{\numberline {2.8.10}你推荐的代码}{49}{subsection.2.8.10}%
+\contentsline {subsection}{\numberline {2.8.11}网上的代码}{49}{subsection.2.8.11}%
+\contentsline {section}{\numberline {2.9}201912-2 回收站选址}{51}{section.2.9}%
+\contentsline {subsection}{\numberline {2.9.1}题目背景}{51}{subsection.2.9.1}%
+\contentsline {subsection}{\numberline {2.9.2}问题描述}{51}{subsection.2.9.2}%
+\contentsline {subsection}{\numberline {2.9.3}输入格式}{51}{subsection.2.9.3}%
+\contentsline {subsection}{\numberline {2.9.4}输出格式}{51}{subsection.2.9.4}%
+\contentsline {subsection}{\numberline {2.9.5}样例 1 输入}{51}{subsection.2.9.5}%
+\contentsline {subsection}{\numberline {2.9.6}样例 1 输出}{51}{subsection.2.9.6}%
+\contentsline {subsection}{\numberline {2.9.7}样例解释}{51}{subsection.2.9.7}%
+\contentsline {subsection}{\numberline {2.9.8}评测用例规模与约定}{51}{subsection.2.9.8}%
+\contentsline {subsection}{\numberline {2.9.9}对讲义中代码的点评或纠错}{51}{subsection.2.9.9}%
+\contentsline {subsection}{\numberline {2.9.10}自己原创的代码的点评与注释}{51}{subsection.2.9.10}%
+\contentsline {subsection}{\numberline {2.9.11}你推荐的代码}{53}{subsection.2.9.11}%
+\contentsline {subsection}{\numberline {2.9.12}网上的代码}{53}{subsection.2.9.12}%
+\contentsline {section}{\numberline {2.10}202009-1 检测点查询}{55}{section.2.10}%
+\contentsline {subsection}{\numberline {2.10.1}题目背景}{55}{subsection.2.10.1}%
+\contentsline {subsection}{\numberline {2.10.2}问题描述}{55}{subsection.2.10.2}%
+\contentsline {subsection}{\numberline {2.10.3}输入格式}{55}{subsection.2.10.3}%
+\contentsline {subsection}{\numberline {2.10.4}输出格式}{55}{subsection.2.10.4}%
+\contentsline {subsection}{\numberline {2.10.5}样例 1 输入}{55}{subsection.2.10.5}%
+\contentsline {subsection}{\numberline {2.10.6}样例 1 输出}{55}{subsection.2.10.6}%
+\contentsline {subsection}{\numberline {2.10.7}样例解释}{55}{subsection.2.10.7}%
+\contentsline {subsection}{\numberline {2.10.8}评测用例规模与约定}{55}{subsection.2.10.8}%
+\contentsline {subsection}{\numberline {2.10.9}对讲义中代码的点评或纠错}{55}{subsection.2.10.9}%
+\contentsline {subsection}{\numberline {2.10.10}自己原创的代码的点评与注释}{55}{subsection.2.10.10}%
+\contentsline {section}{\numberline {2.11}202006-2 稀疏向量}{58}{section.2.11}%
+\contentsline {subsection}{\numberline {2.11.1}题目背景}{58}{subsection.2.11.1}%
+\contentsline {subsection}{\numberline {2.11.2}问题描述}{58}{subsection.2.11.2}%
+\contentsline {subsection}{\numberline {2.11.3}输入格式}{58}{subsection.2.11.3}%
+\contentsline {subsection}{\numberline {2.11.4}输出格式}{58}{subsection.2.11.4}%
+\contentsline {subsection}{\numberline {2.11.5}样例 1 输入}{58}{subsection.2.11.5}%
+\contentsline {subsection}{\numberline {2.11.6}样例 1 输出}{58}{subsection.2.11.6}%
+\contentsline {subsection}{\numberline {2.11.7}样例解释}{58}{subsection.2.11.7}%
+\contentsline {subsection}{\numberline {2.11.8}评测用例规模与约定}{58}{subsection.2.11.8}%
+\contentsline {subsection}{\numberline {2.11.9}对讲义中代码的点评或纠错}{58}{subsection.2.11.9}%
+\contentsline {subsection}{\numberline {2.11.10}自己原创的代码的点评与注释}{58}{subsection.2.11.10}%
+\contentsline {section}{\numberline {2.12}202206-2 寻宝！大冒险！}{60}{section.2.12}%
+\contentsline {subsection}{\numberline {2.12.1}题目背景}{60}{subsection.2.12.1}%
+\contentsline {subsection}{\numberline {2.12.2}问题描述}{60}{subsection.2.12.2}%
+\contentsline {subsection}{\numberline {2.12.3}输入格式}{60}{subsection.2.12.3}%
+\contentsline {subsection}{\numberline {2.12.4}输出格式}{60}{subsection.2.12.4}%
+\contentsline {subsection}{\numberline {2.12.5}样例 1 输入}{60}{subsection.2.12.5}%
+\contentsline {subsection}{\numberline {2.12.6}样例 1 输出}{60}{subsection.2.12.6}%
+\contentsline {subsection}{\numberline {2.12.7}样例解释}{60}{subsection.2.12.7}%
+\contentsline {subsection}{\numberline {2.12.8}评测用例规模与约定}{60}{subsection.2.12.8}%
+\contentsline {subsection}{\numberline {2.12.9}对讲义中代码的点评或纠错}{60}{subsection.2.12.9}%
+\contentsline {subsection}{\numberline {2.12.10}自己原创的代码的点评与注释}{60}{subsection.2.12.10}%
+\contentsline {subsection}{\numberline {2.12.11}你推荐的代码}{62}{subsection.2.12.11}%
+\contentsline {subsection}{\numberline {2.12.12}网上的代码}{62}{subsection.2.12.12}%
+\contentsline {chapter}{\numberline {第三章}STL}{65}{chapter.3}%
+\contentsline {section}{\numberline {3.1}201703-2 学生排队}{65}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}题目背景}{65}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}问题描述}{65}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}输入格式}{65}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}输出格式}{65}{subsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.1.5}样例 1 输入}{65}{subsection.3.1.5}%
+\contentsline {subsection}{\numberline {3.1.6}样例 1 输出}{65}{subsection.3.1.6}%
+\contentsline {subsection}{\numberline {3.1.7}样例解释}{65}{subsection.3.1.7}%
+\contentsline {subsection}{\numberline {3.1.8}评测用例规模与约定}{65}{subsection.3.1.8}%
+\contentsline {subsection}{\numberline {3.1.9}对讲义中代码的点评或纠错}{65}{subsection.3.1.9}%
+\contentsline {subsection}{\numberline {3.1.10}自己原创的代码的点评与注释}{66}{subsection.3.1.10}%
+\contentsline {section}{\numberline {3.2}201709-2 公共钥匙盒}{67}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}题目背景}{67}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}问题描述}{67}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}输入格式}{67}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}输出格式}{67}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}样例 1 输入}{67}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.6}样例 1 输出}{67}{subsection.3.2.6}%
+\contentsline {subsection}{\numberline {3.2.7}样例解释}{67}{subsection.3.2.7}%
+\contentsline {subsection}{\numberline {3.2.8}评测用例规模与约定}{67}{subsection.3.2.8}%
+\contentsline {subsection}{\numberline {3.2.9}对讲义中代码的点评或纠错}{67}{subsection.3.2.9}%
+\contentsline {subsection}{\numberline {3.2.10}自己原创的代码的点评与注释}{68}{subsection.3.2.10}%
+\contentsline {subsection}{\numberline {3.2.11}你推荐的代码}{70}{subsection.3.2.11}%
+\contentsline {subsection}{\numberline {3.2.12}网上的代码}{70}{subsection.3.2.12}%
+\contentsline {section}{\numberline {3.3}201312-1 出现次数最多的数}{71}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}题目背景}{71}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}问题描述}{71}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}输入格式}{71}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}输出格式}{71}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}样例 1 输入}{71}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.6}样例 1 输出}{71}{subsection.3.3.6}%
+\contentsline {subsection}{\numberline {3.3.7}样例解释}{71}{subsection.3.3.7}%
+\contentsline {subsection}{\numberline {3.3.8}评测用例规模与约定}{71}{subsection.3.3.8}%
+\contentsline {subsection}{\numberline {3.3.9}对讲义中代码的点评或纠错}{71}{subsection.3.3.9}%
+\contentsline {subsection}{\numberline {3.3.10}自己原创的代码的点评与注释}{72}{subsection.3.3.10}%
+\contentsline {section}{\numberline {3.4}201503-2 数字排序}{74}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}题目背景}{74}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}问题描述}{74}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}输入格式}{74}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}输出格式}{74}{subsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.4.5}样例 1 输入}{74}{subsection.3.4.5}%
+\contentsline {subsection}{\numberline {3.4.6}样例 1 输出}{74}{subsection.3.4.6}%
+\contentsline {subsection}{\numberline {3.4.7}样例解释}{74}{subsection.3.4.7}%
+\contentsline {subsection}{\numberline {3.4.8}评测用例规模与约定}{74}{subsection.3.4.8}%
+\contentsline {subsection}{\numberline {3.4.9}对讲义中代码的点评或纠错}{74}{subsection.3.4.9}%
+\contentsline {subsection}{\numberline {3.4.10}自己原创的代码的点评与注释}{74}{subsection.3.4.10}%
+\contentsline {section}{\numberline {3.5}201403-1 相反数}{76}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}题目背景}{76}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}问题描述}{76}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}输入格式}{76}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}输出格式}{76}{subsection.3.5.4}%
+\contentsline {subsection}{\numberline {3.5.5}样例 1 输入}{76}{subsection.3.5.5}%
+\contentsline {subsection}{\numberline {3.5.6}样例 1 输出}{76}{subsection.3.5.6}%
+\contentsline {subsection}{\numberline {3.5.7}样例解释}{76}{subsection.3.5.7}%
+\contentsline {subsection}{\numberline {3.5.8}评测用例规模与约定}{76}{subsection.3.5.8}%
+\contentsline {subsection}{\numberline {3.5.9}对讲义中代码的点评或纠错}{76}{subsection.3.5.9}%
+\contentsline {subsection}{\numberline {3.5.10}自己原创的代码的点评与注释}{77}{subsection.3.5.10}%
+\contentsline {section}{\numberline {3.6}201412-1 门禁系统}{78}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}题目背景}{78}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}问题描述}{78}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.3}输入格式}{78}{subsection.3.6.3}%
+\contentsline {subsection}{\numberline {3.6.4}输出格式}{78}{subsection.3.6.4}%
+\contentsline {subsection}{\numberline {3.6.5}样例 1 输入}{78}{subsection.3.6.5}%
+\contentsline {subsection}{\numberline {3.6.6}样例 1 输出}{78}{subsection.3.6.6}%
+\contentsline {subsection}{\numberline {3.6.7}样例解释}{78}{subsection.3.6.7}%
+\contentsline {subsection}{\numberline {3.6.8}评测用例规模与约定}{78}{subsection.3.6.8}%
+\contentsline {subsection}{\numberline {3.6.9}对讲义中代码的点评或纠错}{78}{subsection.3.6.9}%
+\contentsline {subsection}{\numberline {3.6.10}自己原创的代码的点评与注释}{78}{subsection.3.6.10}%
+\contentsline {chapter}{\numberline {第四章}字符串}{80}{chapter.4}%
+\contentsline {section}{\numberline {4.1}201909-3 字符画（复杂模拟）}{80}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}题目背景}{80}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}问题描述}{80}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}输入格式}{80}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}输出格式}{80}{subsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.1.5}样例 1 输入}{80}{subsection.4.1.5}%
+\contentsline {subsection}{\numberline {4.1.6}样例 1 输出}{80}{subsection.4.1.6}%
+\contentsline {subsection}{\numberline {4.1.7}样例解释}{80}{subsection.4.1.7}%
+\contentsline {subsection}{\numberline {4.1.8}评测用例规模与约定}{80}{subsection.4.1.8}%
+\contentsline {subsection}{\numberline {4.1.9}对讲义中代码的点评或纠错}{80}{subsection.4.1.9}%
+\contentsline {subsection}{\numberline {4.1.10}你推荐的代码}{81}{subsection.4.1.10}%
+\contentsline {subsection}{\numberline {4.1.11}网上的代码}{81}{subsection.4.1.11}%
+\contentsline {section}{\numberline {4.2}201812-3 CIDR合并(vector struct分割)}{83}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}题目背景}{83}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}问题描述}{83}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}输入格式}{83}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}输出格式}{83}{subsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.2.5}样例 1 输入}{83}{subsection.4.2.5}%
+\contentsline {subsection}{\numberline {4.2.6}样例 1 输出}{83}{subsection.4.2.6}%
+\contentsline {subsection}{\numberline {4.2.7}样例解释}{83}{subsection.4.2.7}%
+\contentsline {subsection}{\numberline {4.2.8}评测用例规模与约定}{83}{subsection.4.2.8}%
+\contentsline {subsection}{\numberline {4.2.9}对讲义中代码的点评或纠错}{83}{subsection.4.2.9}%
+\contentsline {subsection}{\numberline {4.2.10}你推荐的代码}{83}{subsection.4.2.10}%
+\contentsline {subsection}{\numberline {4.2.11}网上的代码}{83}{subsection.4.2.11}%
+\contentsline {section}{\numberline {4.3}202305-1 重复局面}{87}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}题目背景}{87}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}问题描述}{87}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}输入格式}{87}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}输出格式}{87}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}样例 1 输入}{87}{subsection.4.3.5}%
+\contentsline {subsection}{\numberline {4.3.6}样例 1 输出}{87}{subsection.4.3.6}%
+\contentsline {subsection}{\numberline {4.3.7}样例解释}{87}{subsection.4.3.7}%
+\contentsline {subsection}{\numberline {4.3.8}评测用例规模与约定}{87}{subsection.4.3.8}%
+\contentsline {subsection}{\numberline {4.3.9}对讲义中代码的点评或纠错}{87}{subsection.4.3.9}%
+\contentsline {subsection}{\numberline {4.3.10}自己原创的代码的点评与注释}{87}{subsection.4.3.10}%
+\contentsline {section}{\numberline {4.4}202206-3 角色授权}{89}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}题目背景}{89}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}问题描述}{89}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}输入格式}{89}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.4}输出格式}{89}{subsection.4.4.4}%
+\contentsline {subsection}{\numberline {4.4.5}样例 1 输入}{89}{subsection.4.4.5}%
+\contentsline {subsection}{\numberline {4.4.6}样例 1 输出}{89}{subsection.4.4.6}%
+\contentsline {subsection}{\numberline {4.4.7}样例解释}{89}{subsection.4.4.7}%
+\contentsline {subsection}{\numberline {4.4.8}评测用例规模与约定}{89}{subsection.4.4.8}%
+\contentsline {subsection}{\numberline {4.4.9}对讲义中代码的点评或纠错}{89}{subsection.4.4.9}%
+\contentsline {subsection}{\numberline {4.4.10}你推荐的代码}{89}{subsection.4.4.10}%
+\contentsline {subsection}{\numberline {4.4.11}网上的代码}{89}{subsection.4.4.11}%
+\contentsline {section}{\numberline {4.5}202012-3 带配额的文件系统}{94}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}题目背景}{94}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}问题描述}{94}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}输入格式}{94}{subsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.5.4}输出格式}{94}{subsection.4.5.4}%
+\contentsline {subsection}{\numberline {4.5.5}样例 1 输入}{94}{subsection.4.5.5}%
+\contentsline {subsection}{\numberline {4.5.6}样例 1 输出}{94}{subsection.4.5.6}%
+\contentsline {subsection}{\numberline {4.5.7}样例解释}{94}{subsection.4.5.7}%
+\contentsline {subsection}{\numberline {4.5.8}评测用例规模与约定}{94}{subsection.4.5.8}%
+\contentsline {subsection}{\numberline {4.5.9}对讲义中代码的点评或纠错}{94}{subsection.4.5.9}%
+\contentsline {subsection}{\numberline {4.5.10}你推荐的代码}{94}{subsection.4.5.10}%
+\contentsline {subsection}{\numberline {4.5.11}网上的代码}{94}{subsection.4.5.11}%

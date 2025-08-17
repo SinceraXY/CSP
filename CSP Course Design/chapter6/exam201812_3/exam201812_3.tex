@@ -1,0 +1,171 @@
+\section{201812-3 CIDR合并(vector struct分割)}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+模块化设计： 代码通过结构体、函数和排序等模块化设计，使得不同功能的代码块独立存在，提高了代码的可读性和可维护性。
+
+使用结构体： 结构体 Node 封装了IP地址和前缀长度，重载了小于操作符，有助于按照指定规则进行排序。
+
+使用标准库： 代码使用了C++标准库提供的数据结构和算法，如 vector 和 sort，提高了代码的可靠性和性能。
+
+合理的注释： 代码中包含了一些注释，解释了关键步骤和函数的作用，提高了代码的可读性。
+
+输入处理： 通过 split 函数对IP地址进行切割，提取出需要的信息，并通过 add 函数将其添加到节点列表中，提高了代码的灵活性。
+
+合并算法： merge 函数实现了合并算法，有效地将CIDR前缀合并，减少了冗余。
+
+\subsection{你推荐的代码}
+
+\href{201812-3 CIDR合并}{https://blog.csdn.net/wingrez/article/details/86601755}
+
+\subsection{网上的代码}
+\begin{lstlisting}[language=C++]
+    #include<stdio.h>
+    #include<stdlib.h>
+    #include<string.h>
+    #include<algorithm> 
+    #define MAXN 1000005
+    using namespace std;
+    typedef unsigned int UI;
+    
+    struct IP{
+        UI a[5];
+        UI val;
+    };
+    
+    int n;
+    IP ip[MAXN];
+    
+    bool cmp(const IP &ip1, const IP &ip2){
+        for(int i=0;i<5;i++){
+            if(ip1.a[i]!=ip2.a[i]) return ip1.a[i]<ip2.a[i];
+        }
+        return false;
+    }
+    
+    //将字符串转换为点分十进制形式 
+    void deal_str(int no, char *str){
+        int pn=0,xn=0;//点的数量，斜杠的数量 
+        for(int i=0;i<strlen(str);i++){
+            if(str[i]=='.') pn++;
+            else if(str[i]=='/') xn++; 
+        }
+        
+        //初始化
+        for(int i=0;i<5;i++){
+            ip[no].a[i]=0;
+        }
+        
+        //处理字符串 
+        int cnt=0;
+        char *p1=str, *p2;
+        char tmp[5];
+        for(int i=0;i<pn;i++){
+            p2=strchr(p1,'.');
+            strncpy(tmp,p1,p2-p1);
+            tmp[p2-p1]=0;
+            ip[no].a[cnt++]=atoi(tmp);
+            p1=p2+1;
+        }
+        
+        if(xn>0){
+            p2=strchr(p1,'/');
+            strncpy(tmp,p1,p2-p1);
+            tmp[p2-p1]=0;
+            ip[no].a[cnt++]=atoi(tmp);
+            p1=p2+1;
+            strcpy(tmp,p1);
+            ip[no].a[4]=atoi(tmp); 
+        }
+        else{
+            strcpy(tmp,p1);
+            ip[no].a[cnt++]=atoi(tmp);
+            ip[no].a[4]=cnt*8; 
+        }
+    }
+    
+    void countVal(int no){ //计算十进制值 
+        ip[no].val=0;
+        for(int i=0;i<4;i++){
+            ip[no].val+=ip[no].a[i]<<8*(3-i);
+        }
+    }
+    
+    void range(IP &ip,UI &l, UI &r){ //计算IP前缀能表示的数值范围 
+        l=ip.val>>(32-ip.a[4])<<(32-ip.a[4]);
+        r=ip.val|((1ull<<(32-ip.a[4]))-1);
+    }
+    
+    void union1(){ //从小到大合并 
+        int p=0;
+        UI la,ra,lb,rb;
+        for(int i=1;i<n;i++){
+            range(ip[p],la,ra);
+            range(ip[i],lb,rb);
+            if(!(la<=lb && rb<=ra)) ip[++p]=ip[i];
+        }
+        n=p+1; 
+    }
+    
+    bool judge_union(IP &ip1, IP &ip2, IP &res){ //判断同级能否合并 
+        if(ip1.a[4]!=ip2.a[4]) return false;
+        res=ip1; res.a[4]-=1;
+        if(res.a[4]<0) return false;
+        UI la,ra,lb,rb,laa,raa;
+        range(ip1,la,ra);
+        range(ip2,lb,rb);
+        range(res,laa,raa);
+        if(la==laa && rb==raa && lb<=ra+1) return true;
+        return false;
+    }
+    
+    void union2(){
+        int p=0;
+        IP res;
+        for(int i=1;i<n;i++){
+            if(judge_union(ip[p],ip[i],res)){
+                ip[p]=res;
+                while(p>0 && judge_union(ip[p-1], ip[p], res)) ip[--p]=res;
+            }
+            else ip[++p]=ip[i];
+        }
+        n=p+1;
+    }
+    
+    int main(){
+        char str[25];
+        scanf("%d",&n);
+        for(int i=0;i<n;i++){
+            scanf("%s",str);
+            deal_str(i,str);
+            countVal(i);
+    //		printf("%u.%u.%u.%u/%u\n",ip[i].a[0],ip[i].a[1],ip[i].a[2],ip[i].a[3],ip[i].a[4]);
+    //		printf("%u\n",ip[i].val);
+        }
+        sort(ip,ip+n,cmp);
+        union1();
+        union2();
+        for(int i=0;i<n;i++){
+            printf("%u.%u.%u.%u/%u\n",ip[i].a[0],ip[i].a[1],ip[i].a[2],ip[i].a[3],ip[i].a[4]);
+        } 
+        return 0;
+    }    
+\end{lstlisting}

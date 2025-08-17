@@ -1,0 +1,153 @@
+\section{201912-2 回收站选址}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+使用了结构体：通过定义结构体Coordinate来表示坐标点的属性，提高了代码的可读性和结构化程度。
+
+封装了函数：通过将垃圾检查和地址计数的逻辑封装成了两个函数hasGarbage和countAddresses，提高了代码的模块化和可维护性。
+
+使用了向量容器：通过使用vector容器来存储垃圾的坐标，方便了对垃圾的动态管理，如添加、删除等操作。
+
+代码逻辑清晰：通过循环遍历垃圾坐标，进行相应的检查和计数，代码逻辑相对清晰，易于理解。
+
+使用了初始化列表：在Coordinate结构体的构造函数中使用了初始化列表，提高了代码的简洁性和效率。
+
+使用了$emplace\_back$：在向garbage向量中添加元素时使用了$emplace\_back$，避免了不必要的拷贝构造，提高了性能。
+
+缺点和改进空间：
+
+没有进行输入数据的合法性验证：代码没有对输入的数据进行验证，如果输入的数据不符合要求，可能会导致程序运行错误。建议添加输入数据的验证。
+
+\subsection{自己原创的代码的点评与注释}
+
+用$unordered\_set$存储垃圾点坐标，以便快速查找。
+
+遍历每个垃圾点，判断其上下左右四个邻居位置是否都存在垃圾。
+
+计算四个对角位置中存在垃圾的个数，作为得分。
+
+根据条件判断是否满足建站条件，满足则更新相应得分的回收站选址个数。
+
+输出最终结果。
+
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+    #include <vector>
+    #include <unordered_set>
+    
+    using namespace std;
+    
+    int main() {
+        // 读取输入
+        int n;
+        cin >> n;
+    
+        // 垃圾点坐标存储在set中，便于查找
+        unordered_set<int> garbage_points;
+        
+        // 读取垃圾点坐标并存储
+        for (int i = 0; i < n; ++i) {
+            int x, y;
+            cin >> x >> y;
+            garbage_points.insert(x * 1000000 + y);  // 将二维坐标转为一维，确保唯一性
+        }
+    
+        // 初始化得分为0的回收站选址个数
+        vector<int> scores(5, 0);
+    
+        // 遍历每个垃圾点，判断是否满足建站条件
+        for (auto point : garbage_points) {
+            int x = point / 1000000;
+            int y = point % 1000000;
+    
+            // 上下左右四个邻居位置
+            bool up = garbage_points.count((x, y + 1));
+            bool down = garbage_points.count((x, y - 1));
+            bool left = garbage_points.count((x - 1, y));
+            bool right = garbage_points.count((x + 1, y));
+    
+            // 在 (x ± 1, y ± 1) 四个对角位置中有几处存在垃圾
+            int diagonal_score = 0;
+            diagonal_score += garbage_points.count((x - 1, y - 1));
+            diagonal_score += garbage_points.count((x - 1, y + 1));
+            diagonal_score += garbage_points.count((x + 1, y - 1));
+            diagonal_score += garbage_points.count((x + 1, y + 1));
+    
+            // 判断是否满足建站条件
+            if (up && down && left && right) {
+                scores[diagonal_score]++;
+            }
+        }
+    
+        // 输出结果
+        for (int score : scores) {
+            cout << score << endl;
+        }
+    
+        return 0;
+    }    
+\end{lstlisting}
+
+\subsection{你推荐的代码}
+
+\href{201912-2 回收站选址}{https://blog.csdn.net/weixin\_45884316/article/details/103604320}
+
+\subsection{网上的代码}
+\begin{lstlisting}[language=C++]
+    #include<stdio.h>
+    int main()
+    {
+        long long int a[1000][2];
+        int b[1000]={0},c[5]={0};
+        int n,i,j;
+        scanf("%d",&n);
+        for(i=0;i<n;i++)
+            scanf("%lld%lld",&a[i][0],&a[i][1]);//数组的值为坐标 
+        for(i=0;i<n;i++)
+        {
+            for(j=i+1;j<n;j++)
+            {
+                if((a[i][0]==a[j][0]&&a[i][1]==a[j][1]+1)||(a[i][0]==a[j][0]&&a[i][1]==a[j][1]-1)||	(a[i][0]==a[j][0]-1&&a[i][1]==a[j][1])||(a[i][0]==a[j][0]+1&&a[i][1]==a[j][1]))
+                {
+                    b[i]++;
+                    b[j]++;
+                }
+            }
+        }
+        for(i=0;i<n;i++)
+        {
+            int count=0;//对角线上有几个 
+            if(b[i]==4)
+            {
+                for(j=0;j<n;j++)
+                {
+                    if((a[i][0]==a[j][0]+1&&a[i][1]==a[j][1]+1)||(a[i][0]==a[j][0]+1&&a[i][1]==a[j][1]-1)||
+                    (a[i][0]==a[j][0]-1&&a[i][1]==a[j][1]+1)||(a[i][0]==a[j][0]-1&&a[i][1]==a[j][1]-1))
+                        count++;
+                }
+                c[count]++;
+            } 
+        }
+        for(i=0;i<=4;i++)
+            printf("%d\n",c[i]);
+        return 0;
+    }    
+\end{lstlisting}

@@ -1,0 +1,313 @@
+\documentclass[cn,11pt,chinese]{elegantbook}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{booktabs} 
+\usepackage{import}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tabularray}
+
+%\SetWatermarkText{\includegraphics{figure/watermark.png}}
+%[width=50mm,scale=0.5]
+\lstset{
+   numbers=left,   %添加代码的编号，在左侧
+    basicstyle=\ttfamily,%字母使用打字机字族
+    keywordstyle=\color[rgb]{0.87,0.15,0.11}, %设置关键词为蓝色，需要引xcolor宏包
+    commentstyle=\color{blue!70!cyan} \textit,
+    stringstyle=\color[rgb]{0.13,0.7,0.3}, % 代码字符串的特殊格式
+    language=C++  %高亮C++代码
+}
+
+%\logo{logo-blue.png}
+%\cover{cover-cup1.jpg}
+%\cover{logo.jpg}
+\begin{document}
+\title{CSP课程设计作业}
+\begin{titlepage}
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+    \includegraphics[width=1\linewidth]{image/logo.jpg}
+	\center 
+	\quad\\[1.5cm]
+	\textsl{\Large XXX}\\[0.5cm] 
+	\textsl{\large xxxx学院}\\[0.5cm] 
+      \textsl{\large 教师:  XXX}\\[0.5cm] 
+     \textsl{\large 202x-202x学年第x学期 }\\[0.5cm]  
+ \makeatletter
+	\HRule \\[0.4cm]
+	{ \huge \bfseries \@title}\\[0.4cm] 
+	\HRule \\[1.5cm]
+    \renewcommand\arraystretch{1.6}{\begin{tabular}{ll}
+     
+      \textsl{课程号:} \textsl{02}  \\
+        \textsl{序号:} \textsl{115} 
+        \\
+        \textsl{学号:} \textsl{2022011xxx}\\ 
+        \textsl{班级:}\textsl{ 计算机xxx班}\\
+        \textsl{姓名:}  \textsl{XXX}  
+    \end{tabular}}
+     \vfill
+	\makeatother
+	{\large 请在下列时间之前提交;}\\[0.5cm]
+	{\large{北京时间xx月xx日晚20:00点}}\\[2cm] 
+	\vfill 
+
+ \newpage
+
+
+\begin{table}[h!]
+  \caption{题目汇总}
+  \centering
+  \begin{tabularx}{0.8\textwidth}{
+    | >{\hsize=0.1\hsize}X | 
+     >{\hsize=0.2\hsize}X | 
+     >{\hsize=0.4\hsize}X |
+     >{\hsize=0.3\hsize}X | 
+  }
+    \hline
+    \textbf{序号} & \textbf{章节} & \textbf{题目} & \textbf{分数}\\
+    \hline
+    1 & 第三章 & 201604-1 折点计数 &\\ 
+    \hline
+    2 & 第三章 & 201609-1 最大波动 &\\
+    \hline
+    3 & 第三章 & 201809-1 卖菜 &\\
+    \hline
+    4 & 第三章 & 201903-1 小中大 &\\
+    \hline
+    5 & 第三章 & 202203-1 未初始化警告 &\\
+    \hline
+    6 & 第三章 & 201703-1 分蛋糕 &\\
+    \hline
+    7 & 第三章 & 201612-1 中间数 &\\
+    \hline
+    8 & 第三章 & 201812-1 小明上学 &\\
+    \hline
+    9 & 第三章 & 201812-2 小明放学 &\\
+    \hline
+    10 & 第三章 & 202006-1 线性分类器 &\\
+    \hline
+    11 & 第三章 & 201509-2 日期计算 &\\
+    \hline
+    12 & 第三章 & 201503-3 节日 &\\
+    \hline
+    13 & 第四章 & 201712-2 游戏 &\\ 
+    \hline
+    14 & 第四章 & 202009-2 风险人群筛查 &\\
+    \hline
+    15 & 第四章 & 201503-1 图像旋转 &\\
+    \hline
+    16 & 第四章 & 201512-2 消除类游戏 &\\
+    \hline
+    17 & 第四章 & 201604-2 俄罗斯方块 &\\
+    \hline
+    18 & 第四章 & 202305-2 矩阵运算 &\\
+    \hline
+    19 & 第四章 & 201403-2 窗口 &\\
+    \hline
+    20 & 第四章 & 201803-2 碰撞的小球 &\\
+    \hline
+    21 & 第四章 & 201912-2 回收站选址 &\\
+    \hline
+    22 & 第四章 & 202009-1 检测点查询 &\\
+    \hline
+    23 & 第四章 & 202006-2 稀疏向量 &\\
+    \hline
+    24 & 第四章 & 202206-2 寻宝！大冒险！ &\\
+    \hline
+    25 & 第五章 & 201703-2 学生排队 &\\
+    \hline
+    26 & 第五章 & 201709-2 公共钥匙盒 &\\
+    \hline
+    27 & 第五章 & 201312-1 出现次数最多的数 &\\
+    \hline
+    28 & 第五章 & 201503-2 数字排序 &\\
+    \hline
+    29 & 第五章 & 201403-1 相反数 &\\
+    \hline
+    30 & 第五章 & 201412-1 门禁系统 &\\
+    \hline
+    31 & 第六章 & 201909-3 字符画 &\\
+    \hline
+    32 & 第六章 & 201812-3 CIDR 合并 &\\
+    \hline
+    33 & 第六章 &  202305-1 重复局面 &\\
+    \hline
+    34 & 第六章 & 202206-3 角色授权 &\\
+    \hline
+    35 & 第六章 & 202012-3 带配额的文件系统 &\\
+    \hline
+  \end{tabularx}
+\end{table}
+
+\end{titlepage}
+%\end{document}
+% 本文档命令
+
+\newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
+% 修改目录深度
+%\setcounter{tocdepth}{3}
+%\begin{document}
+
+%\maketitle
+\frontmatter
+
+\tableofcontents
+%\listofchanges
+\mainmatter
+
+\chapter{一维数组}
+\begin{introduction}[本人完成的题目]
+       \item 
+       \begin{enumerate}[\Roman*]
+           \item 流处理
+        \begin{enumerate}[\arabic*]
+            \item 201604-1 折点计数
+            \item 201609-1 最大波动
+            \item 201809-1 卖菜
+            \item 201903-1 小中大
+            \item 202203-1 未初始化警告
+            \item 201703-1 分蛋糕
+        \end{enumerate}
+    \item 排序
+         \begin{enumerate}[\arabic*]
+            \item 201612-1 中间数
+        \end{enumerate}
+    \item 模拟
+         \begin{enumerate}[\arabic*]
+           \item 201812-1 小明上学
+           \item 201812-2 小明放学
+           \item 202006-1 线性分类器
+           \item 201509-2 日期计算
+           \item 201503-3 节日
+        \end{enumerate}
+       \end{enumerate}
+\end{introduction}
+\input{chapter3/exam201604_1/exam201604_1}
+\input{chapter3/exam201609_1/exam201609_1}
+\input{chapter3/exam201809_1/exam201809_1}
+\input{chapter3/exam201903_1/exam201903_1}
+\input{chapter3/exam202203_1/exam202203_1}
+\input{chapter3/exam201703_1/exam201703_1}
+\input{chapter3/exam201612_1/exam201612_1}
+\input{chapter3/exam201812_1/exam201812_1}
+\input{chapter3/exam201812_2/exam201812_2}
+\input{chapter3/exam202006_1/exam202006_1}
+\input{chapter3/exam201509_2/exam201509_2}
+\input{chapter3/exam201503_3/exam201503_3}
+
+\chapter{STL入门与vector}
+\begin{introduction}[本人完成的题目]
+  \item 
+  \begin{enumerate}[\Roman*]
+      \item 一维 vector
+   \begin{enumerate}[\arabic*]
+       \item 201712-2 游戏
+       \item 202009-2 风险人群筛查
+   \end{enumerate}
+\item 二维 vector
+    \begin{enumerate}[\arabic*]
+       \item 201503-1 图像旋转
+       \item 201512-2 消除类游戏
+       \item 201604-2 俄罗斯方块
+       \item 202305-2 矩阵运算
+   \end{enumerate}
+\item 结构体与 vector
+    \begin{enumerate}[\arabic*]
+      \item 201403-2 窗口
+      \item 201803-2 碰撞的小球
+      \item 201912-2 回收站选址
+      \item 202009-1 检测点查询
+   \end{enumerate}
+\item pair 与 vector
+  \begin{enumerate}[\arabic*]
+    \item 202006-2 稀疏向量
+    \item 202206-2 寻宝！大冒险！
+  \end{enumerate}
+  \end{enumerate}
+\end{introduction}
+\input{chapter4/exam201712_2/exam201712_2}
+\input{chapter4/exam202009_2/exam202009_2}
+\input{chapter4/exam201503_1/exam201503_1}
+\input{chapter4/exam201512_2/exam201512_2}
+\input{chapter4/exam201604_2/exam201604_2}
+\input{chapter4/exam202305_2/exam202305_2}
+\input{chapter4/exam201403_2/exam201403_2}
+\input{chapter4/exam201803_2/exam201803_2}
+\input{chapter4/exam201912_2/exam201912_2}
+\input{chapter4/exam202009_1/exam202009_1}
+\input{chapter4/exam202006_2/exam202006_2}
+\input{chapter4/exam202206_2/exam202206_2}
+
+\chapter{STL}
+\begin{introduction}[本人完成的题目]
+  \item 
+  \begin{enumerate}[\Roman*]
+      \item list
+   \begin{enumerate}[\arabic*]
+       \item 201703-2 学生排队
+   \end{enumerate}
+\item stack 适配器
+\item 单调栈适配器
+\item $priority\_queue$适配器
+    \begin{enumerate}[\arabic*]
+       \item 201709-2 公共钥匙盒
+   \end{enumerate}
+\item map关联
+    \begin{enumerate}[\arabic*]
+      \item 201312-1 出现次数最多的数
+   \end{enumerate}
+\item multimap 关联
+    \begin{enumerate}[\arabic*]
+      \item 201503-2 数字排序
+    \end{enumerate}
+\item $unordered\_set$无序关联式容器
+  \begin{enumerate}[\arabic*]
+    \item 201403-1 相反数
+  \end{enumerate}
+\item $unordered\_map$无序关联式容器
+  \begin{enumerate}[\arabic*]
+    \item 201412-1 门禁系统
+  \end{enumerate}
+  \end{enumerate}
+\end{introduction}
+\input{chapter5/exam201703_2/exam201703_2}
+\input{chapter5/exam201709_2/exam201709_2}
+\input{chapter5/exam201312_1/exam201312_1}
+\input{chapter5/exam201503_2/exam201503_2}
+\input{chapter5/exam201403_1/exam201403_1}
+\input{chapter5/exam201412_1/exam201412_1}
+
+\chapter{字符串}
+\begin{introduction}[本人完成的题目]
+  \item 
+  \begin{enumerate}[\Roman*]
+      \item 字符串函数基础
+   \begin{enumerate}[\arabic*]
+       \item 201909-3 字符画（复杂模拟）
+   \end{enumerate}
+\item stl
+    \begin{enumerate}[\arabic*]
+       \item 201812-3 CIDR合并(vector struct分割)
+   \end{enumerate}
+\item map 关联式容器
+\item $unordered\_map $无序关联式容器
+    \begin{enumerate}[\arabic*]
+      \item 202305-1 重复局面
+      \item 202206-3 角色授权
+   \end{enumerate}
+\item 分割
+\item 复杂模拟
+  \begin{enumerate}[\arabic*]
+    \item 202012-3 带配额的文件系统（str vec struct）
+  \end{enumerate}
+  \end{enumerate}
+\end{introduction}
+\input{chapter6/exam201909_3/exam201909_3}
+\input{chapter6/exam201812_3/exam201812_3}
+\input{chapter6/exam202305_1/exam202305_1}
+\input{chapter6/exam202206-3/exam202206-3}
+\input{chapter6/exam202012_3/exam202012_3}
+
+\end{document}

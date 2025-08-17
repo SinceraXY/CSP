@@ -1,0 +1,91 @@
+\section{201703-1 分蛋糕}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+简洁而高效的算法： 代码使用了一次循环，通过累加元素值的方式高效地计算满足条件的分组数量，算法简洁而有效。
+
+使用常量和数组： 使用了常量 maxn 来定义数组的最大长度，提高了代码的可维护性。同时，使用数组 a 存储输入元素，对于序列数据结构的处理更加方便。
+
+避免了全局变量： 除了常量 maxn，所有变量都被限制在 main 函数的局部作用域内，避免了全局变量可能带来的问题。
+
+使用 cur 优雅地跟踪当前累加和： 使用 cur 变量巧妙地跟踪当前累加和，提高了代码的可读性。
+
+合理的输入处理： 通过使用循环读取输入，对于数组的初始化和元素的输入都采用了一致的方式。
+
+清晰的逻辑结构： 代码逻辑清晰，易于理解。通过一个循环遍历数组，累加元素值，判断是否满足条件，并更新计数器，最后输出结果。
+
+\subsection{自己原创的代码的点评与注释}
+
+读入蛋糕的数量n和每个朋友至少要分到的蛋糕重量k。
+
+读入n个蛋糕的重量。
+
+对蛋糕重量数组进行排序。
+
+遍历排序后的蛋糕数组，依次将蛋糕分给朋友，每次分给朋友后检查总重量是否达到k。
+
+输出分到蛋糕的朋友数量。
+
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+    #include <vector>
+    #include <algorithm>
+    
+    using namespace std;
+    
+    int main() {
+        // 读入 n 和 k
+        int n, k;
+        cin >> n >> k;
+    
+        // 读入蛋糕的重量数组
+        vector<int> weights(n);
+        for (int i = 0; i < n; ++i) {
+            cin >> weights[i];
+        }
+    
+        // 对蛋糕重量数组进行排序
+        sort(weights.begin(), weights.end());
+    
+        // 初始化朋友计数器和当前朋友所分蛋糕的总重量
+        int friendCount = 0;
+        int currentWeight = 0;
+    
+        // 遍历蛋糕，分给朋友
+        for (int i = 0; i < n; ++i) {
+            // 当前朋友分到的蛋糕总重量加上当前蛋糕的重量
+            currentWeight += weights[i];
+            
+            // 如果当前蛋糕分给朋友后总重量大于等于 k，表示当前朋友分到蛋糕
+            if (currentWeight >= k) {
+                // 重置当前朋友分到的蛋糕总重量，为下一个朋友做准备
+                currentWeight = 0;
+                // 朋友计数器加一
+                friendCount++;
+            }
+        }
+    
+        // 输出结果
+        cout << friendCount << endl;
+    
+        return 0;
+    }    
+\end{lstlisting}

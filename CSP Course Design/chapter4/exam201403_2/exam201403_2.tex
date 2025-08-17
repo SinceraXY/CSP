@@ -1,0 +1,164 @@
+\section{201403-2 窗口}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+使用了结构体：通过定义结构体Window来表示窗口的位置和编号，提高了代码的可读性和结构化程度。
+
+封装了判断点是否在窗口内的函数：使用isInside函数来判断给定的点是否在窗口内，提高了代码的模块化和可维护性。
+
+使用了向量容器：通过使用vector容器来存储窗口信息，方便了对窗口的动态管理，如添加、删除等操作。
+
+基本逻辑清晰：代码逻辑相对清晰，通过嵌套循环实现了窗口选择和置顶的操作。
+
+\subsection{自己原创的代码的点评与注释}
+
+首先定义了一个窗口结构体，包含窗口的坐标信息和顺序编号。然后，它依次读入窗口信息和鼠标点击信息，模拟点击过程并输出结果。在每次点击后，将被点击的窗口移到所有窗口的最顶层。程序使用一个循环遍历窗口来确定最顶层的窗口，并在点击后更新窗口的顺序。
+
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+    #include <vector>
+    
+    using namespace std;
+    
+    // 定义窗口结构体
+    struct Window {
+        int x1, y1, x2, y2; // 窗口左上角和右下角坐标
+        int order;          // 窗口的顺序编号
+    };
+    
+    // 判断点是否在窗口内部
+    bool isInside(int x, int y, const Window& window) {
+        return x >= window.x1 && x <= window.x2 && y >= window.y1 && y <= window.y2;
+    }
+    
+    int main() {
+        int N, M;
+        cin >> N >> M;
+    
+        vector<Window> windows(N);
+    
+        // 读入窗口信息
+        for (int i = 0; i < N; ++i) {
+            cin >> windows[i].x1 >> windows[i].y1 >> windows[i].x2 >> windows[i].y2;
+            windows[i].order = i + 1; // 窗口编号从1开始
+        }
+    
+        // 模拟鼠标点击
+        for (int i = 0; i < M; ++i) {
+            int x, y;
+            cin >> x >> y;
+    
+            bool clicked = false;
+            // 从顶层到底层遍历窗口，找到最顶层的窗口
+            for (int j = N - 1; j >= 0; --j) {
+                if (isInside(x, y, windows[j])) {
+                    cout << windows[j].order << endl;
+                    // 将当前点击的窗口移至顶层
+                    Window clickedWindow = windows[j];
+                    windows.erase(windows.begin() + j);
+                    windows.push_back(clickedWindow);
+                    clicked = true;
+                    break;
+                }
+            }
+    
+            // 如果没有窗口被点击，则输出IGNORED
+            if (!clicked) {
+                cout << "IGNORED" << endl;
+            }
+        }
+    
+        return 0;
+    }    
+\end{lstlisting}
+
+\subsection{你推荐的代码}
+
+\href{201403-2 窗口}{https://blog.csdn.net/tigerisland45/article/details/54782238}
+
+\subsection{网上的代码}
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+     
+    using namespace std;
+     
+    const int N = 10;
+     
+    struct {
+        int winno;
+        int x1, y1, x2, y2;
+    } win[N];
+     
+    struct {
+        int x, y;
+    } point[N];
+     
+    int order[N];
+     
+    int main()
+    {
+        int n, m;
+     
+        // 输入数据
+        cin >> n >> m;
+        for(int i=0; i<n; i++) {
+            win[i].winno = i + 1;
+            cin >> win[i].x1 >> win[i].y1 >> win[i].x2 >> win[i].y2;
+        }
+        for(int i=0; i<m; i++)
+            cin >> point[i].x >> point[i].y;
+     
+        // 初始化窗口显示顺序
+        for(int i=0; i<n; i++)
+            order[i] = n - i - 1;
+     
+        // 处理（模拟）鼠标点击
+        int winno, temp;
+        for(int i=0; i<m; i++) {
+            winno = -1;     // 被点击的窗口号，－１表示未被点击
+     
+            // 判断哪个窗口被点击
+            for(int j=0; j<n; j++) {
+                if(win[order[j]].x1 <= point[i].x && point[i].x <= win[order[j]].x2 &&
+                        win[order[j]].y1 <= point[i].y && point[i].y <= win[order[j]].y2) {
+                    // 得到窗口号
+                    winno = win[order[j]].winno;
+     
+                    // 将被点击的窗口移到最前端
+                    temp = order[j];
+                    for(int k=j; k>0; k--)
+                        order[k] = order[k-1];
+                    order[0] = temp;
+     
+                    break;
+                }
+            }
+     
+            // 输出结果
+            if(winno == -1)
+                cout << "IGNORED" << endl;
+            else
+                cout << winno << endl;
+        }
+     
+        return 0;
+    }
+\end{lstlisting}

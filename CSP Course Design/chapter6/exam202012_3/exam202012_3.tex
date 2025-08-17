@@ -1,0 +1,327 @@
+\section{202012-3 带配额的文件系统}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+使用了面向对象的设计：通过定义结构体 node 表示文件系统中的节点，包含名称、孩子节点、父节点、文件配额等信息，使用面向对象的思想，提高了代码的可维护性和可扩展性。
+
+使用了动态内存分配：通过使用 new 运算符创建节点，灵活地管理内存，避免了静态内存分配的限制，使得程序更加灵活。
+
+使用了函数和模块化设计：通过将不同功能划分为不同的函数（opec、oper、opeq）和结构体成员函数，实现了代码的模块化设计，提高了代码的可读性和可维护性。
+
+考虑了文件系统的多种操作：程序支持创建、删除文件和目录，以及查询文件和目录的配额信息，覆盖了文件系统的基本操作。
+
+使用了 switch 语句：通过使用 switch 语句处理不同的操作类型，提高了代码的清晰度和可读性。
+
+考虑了根节点的特殊情况：程序在处理根节点时进行了特殊处理，保证了对根节点的操作正确性。
+
+考虑了目录的后代文件配额：在操作普通文件时，考虑了目录及其所有祖先结点的后代文件配额是否满足的问题，保证了数据的一致性。
+
+使用了合适的数据结构：通过使用 vector 存储文件路径，使得路径操作更加灵活。
+
+\subsection{你推荐的代码}
+
+\href{202012-3 带配额的文件系统}{https://blog.csdn.net/qq\_43381135/article/details/112953778}
+
+\subsection{网上的代码}
+\begin{lstlisting}[language=C++]
+    #include<iostream>
+    #include<cstdio>
+    #include<map>
+    #include<vector>
+    #include<cstring>
+    #pragma warning (disable:4996)
+    using namespace std;
+    int num = 0;
+    struct node {
+        int father; //父节点
+        map<string, int>child; //孩子节点
+        int type; //1:文件   2:目录
+        long long ld, lr;
+        long long size;
+        long long ld_r, lr_r;
+    }Node[4000010];
+    vector<pair<int, string> >reback;
+    void Reback()
+    {
+        int i;
+        for (i = 0; i < reback.size(); i++)
+        {
+            int a = reback[i].first;
+            string b = reback[i].second;
+            Node[a].child.erase(Node[a].child.find(b));
+        }
+    }
+    string executeC()
+    {
+        int i, j;
+        string filepath;
+        long long filesize;
+        cin >> filepath >> filesize;     //输入普通文件路径以及普通文件大小
+        int last = -1;
+        for (i = filepath.length() - 1; i >= 0; i--)
+        {
+            if (filepath[i] == '/')
+            {
+                last = i;       //找到最后一个/的位置，后面就是文件，前面就是目录
+                break;
+            }
+        }
+        int current = 1;
+        int id = 0;
+        reback.clear();
+        int oldnum = num; 
+        //前面的目录操作
+        while (current < last)
+        {
+            string t = "";
+            while (current < last && filepath[current] != '/')  //读入每一个目录文件的名字
+            {
+                t = t + filepath[current];
+                current++;
+            }
+            current++;
+            if (Node[id].child.find(t) == Node[id].child.end()) //没有这个目录，那就创建一个咯
+            {
+                num++;
+                Node[id].child[t] = num;
+                Node[num].father = id;
+                Node[num].type = 2;
+                Node[num].ld = LLONG_MAX / 3;
+                Node[num].lr = LLONG_MAX / 3;
+                reback.push_back(make_pair(id, t));
+                id = num;
+            }
+            else                 //存在这个目录文件
+            {
+                int childid = Node[id].child[t];
+                if (Node[childid].type == 1)   //如果这个是文件，则直接输出'N'
+                {
+                    num = oldnum;
+                    Reback();
+                    return "N";
+                }
+                id = childid;
+            }
+        }
+    
+        //最后一个的文件操作
+        string t = "";
+        for (i = last + 1; i < filepath.length(); i++)
+        {
+            t = t + filepath[i];
+        }
+        if (Node[id].child.find(t) != Node[id].child.end()) //存在这个文件
+        {
+            int childid = Node[id].child[t];
+            if (Node[childid].type == 2)   //如果这个是目录，直接输出'N'
+            {
+                num = oldnum;
+                Reback();
+                return "N";
+            }
+        }
+        //判断新的改变是否满足配额要求
+        long long changesize = 0;
+        if (Node[id].child.find(t) == Node[id].child.end()) changesize = filesize;
+        else changesize = -Node[Node[id].child[t]].size + filesize;
+        if (Node[id].ld_r + changesize > Node[id].ld)
+        {
+            num = oldnum;
+            Reback();
+            return "N";
+        }
+        int now = id;
+        while (now != -1)
+        {
+            if (Node[now].lr_r + changesize > Node[now].lr)
+            {
+                id = oldnum;
+                Reback();
+                return "N";
+            }
+            now = Node[now].father;
+        }
+        //如果满足配额要求，则执行创建普通文件操作以及修改变化的参数
+        if (Node[id].child.find(t) == Node[id].child.end())
+        {
+            num++;
+            Node[num].type = 1;
+            Node[num].father = id;
+            Node[num].size = filesize;
+            Node[id].child[t] = num;
+        }
+        else Node[Node[id].child[t]].size = filesize;
+        Node[id].ld_r = Node[id].ld_r + changesize;
+        now = id;
+        while (now != -1)
+        {
+            Node[now].lr_r = Node[now].lr_r + changesize;
+            now = Node[now].father;
+        }
+        return "Y";
+    }
+    string executeR()
+    {
+        int i;
+        string filepath;
+        cin >> filepath;          //输入文件路径
+        int current = 1;
+        int id = 0;
+        int last = -1;
+        for (i = filepath.length() - 1; i >= 0; i--)
+        {
+            if (filepath[i] == '/')
+            {
+                last = i;
+                break;
+            }
+        }
+        while (current < last)
+        {
+            string t = "";
+            while (current < last && filepath[current] != '/')
+            {
+                t = t + filepath[current];
+                current++;
+            }
+            current++;
+            if (Node[id].child.find(t) == Node[id].child.end())  //没有这个目录，直接按照删除成功处理
+            {
+                return "Y";
+            }
+            else      //存在这个目录，继续扫描下去
+            {
+                int childid = Node[id].child[t];
+                if (Node[childid].type == 1) return "Y";
+                id = childid;
+            }
+        }
+        string t = "";
+        for (i = last + 1; i < filepath.length(); i++)   //提取最后想要删除的文件名
+            t = t + filepath[i];
+        if (Node[id].child.find(t) == Node[id].child.end())
+            return "Y";
+        long long delsize = 0;
+        int delNode = Node[id].child[t];     //删除文件的大小
+        if (Node[delNode].type == 1)
+        {
+            Node[id].ld_r = Node[id].ld_r - Node[delNode].size;
+            delsize = Node[delNode].size;
+            Node[id].child.erase(Node[id].child.find(t));
+        }
+        else if (Node[delNode].type == 2)
+        {
+            delsize = Node[delNode].lr_r;
+            Node[id].child.erase(Node[id].child.find(t));
+        }
+        int now = id;
+        while (now != -1)
+        {
+            Node[now].lr_r = Node[now].lr_r - delsize;
+            now = Node[now].father;
+        }
+        return  "Y";
+    }
+    string executeQ()
+    {
+        int i;
+        string filepath;
+        cin >> filepath;
+        long long ld, lr;
+        cin >> ld >> lr;
+        if (ld == 0) ld = LLONG_MAX / 3;
+        if (lr == 0) lr = LLONG_MAX / 3;
+        int id = 0;
+        int last = -1;
+        int current = 1;
+        for (i = filepath.length() - 1; i >= 0; i--)
+        {
+            if (filepath[i] == '/')
+            {
+                last = i;
+                break;
+            }
+        }
+        while (current < last)
+        {
+            string t = "";
+            while (current < last && filepath[current] != '/')
+            {
+                t = t + filepath[current];
+                current++;
+            }
+            current++;
+            if (Node[id].child.find(t) == Node[id].child.end())
+                return "N";
+            else
+            {
+                int childid = Node[id].child[t];
+                if (Node[childid].type == 1) return "N";
+                id = childid;
+            }
+        }
+        string t = "";
+        for (i = last + 1; i < filepath.length(); i++) t = t + filepath[i];
+        int Qnode = 0;
+        if (t == "") Qnode = 0;
+        else
+        {
+            if (Node[id].child.find(t) == Node[id].child.end()) return "N";
+            else Qnode = Node[id].child[t];
+        }
+        if (Node[Qnode].type == 1) return "N";
+        if (ld < Node[Qnode].ld_r || lr < Node[Qnode].lr_r) return "N";
+        Node[Qnode].ld = ld;
+        Node[Qnode].lr = lr;
+        return "Y";
+    }
+    int main()
+    {
+        freopen("in.in", "r", stdin);
+        freopen("out.out", "w", stdout);
+        int i, j;
+        Node[0].type = 2;
+        Node[0].ld = LLONG_MAX / 3;
+        Node[0].lr = LLONG_MAX / 3;
+        Node[0].father = -1;
+        int op_num;
+        cin >> op_num;   // 输入操作数
+        for (i = 1; i <= op_num; i++)
+        {
+            char op;
+            cin >> op;        //输入操作类型
+            if (op == 'C')
+            {
+                cout << executeC() << endl;       //执行创建普通文件操作
+            }
+            else if (op == 'R')
+            {
+                cout << executeR() << endl;       //执行移除文件操作
+            }
+            else if (op == 'Q')
+            {
+                cout << executeQ() << endl;       //执行设置配额值操作
+            }
+        }
+        return 0;
+    }
+    
+\end{lstlisting}

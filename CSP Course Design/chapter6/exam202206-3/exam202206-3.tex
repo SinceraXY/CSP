@@ -1,0 +1,183 @@
+\section{202206-3 角色授权}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+清晰的结构： 代码模块化，使用了结构体 Role 来存储角色的相关信息，提高了代码的可读性和维护性。
+
+合理使用数据结构： 使用了$unordered\_map$和vector等数据结构，以高效地存储和检索角色及其关联信息。
+
+函数封装： 使用函数将角色信息的读取、关联信息的读取和查询处理分离，提高了代码的模块化程度。
+
+逻辑清晰： 查询处理的逻辑清晰，首先检查个人关联的角色，然后再检查用户组关联的角色，提高了代码的可读性。
+
+使用STL算法： 使用了STL算法中的 find 函数来查找角色操作的可执行性，提高了代码的简洁性。
+
+输入处理： 在读取角色信息和关联信息时，使用了循环和适当的数据结构，处理了多组输入的情况。
+
+\subsection{你推荐的代码}
+
+\href{202206-3 角色授权}{https://blog.csdn.net/qq\_51800570/article/details/126876449}
+
+\subsection{网上的代码}
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+    #include <cstring>
+    #include <vector>
+    #include <map>
+    
+    using namespace std;
+    
+    const int N = 510;
+    
+    map<string, vector <string> > rolecon; //记录该用户与哪些角色相匹配
+    map<string, int> rid; //记录角色所对应的结构体下标
+    
+    struct role
+    {
+        string name;
+        map <string, int> opset;
+        map <string, int> rskind;
+        map <string, int> rsname;
+    }R[N];
+    
+    bool check (string rolename, string opname, string rskd, string rsne)
+    {
+        bool flag = true;
+        int id = rid[rolename];
+    
+        if ((R[id].opset.count("*") == 0) && (R[id].opset.count(opname) == 0)) return false;
+        if ((R[id].rskind.count("*") == 0) && (R[id].rskind.count(rskd) == 0)) return false;
+        if ((R[id].rsname.size() != 0) && (R[id].rsname.count(rsne) == 0)) return false;
+        return true;
+    }
+    
+    int main()
+    {
+        ios::sync_with_stdio(false);
+        int n, m, q;
+        cin >> n >> m >> q;
+    
+        //保存角色内容
+        for (int i = 0; i < n; i ++)
+        {
+            string name;
+            cin >> name;
+            R[i].name = name;
+            rid[name] = i;
+    
+            int opnum;
+            cin >> opnum;
+            for (int j = 0; j < opnum; j ++)
+            {
+                string t;
+                cin >> t;
+                R[i].opset[t] = 1;
+            }
+    
+            int rk;
+            cin >> rk;
+            for (int j = 0; j < rk; j ++)
+            {
+                string t;
+                cin >> t;
+                R[i].rskind[t] = 1;
+            }
+    
+            int rn;
+            cin >> rn;
+            for (int j = 0; j < rn; j ++)
+            {
+                string t;
+                cin >> t;
+                R[i].rsname[t] = 1;
+            }
+        }
+    
+        //存储用户或组分别拥有哪些角色
+        for (int i = 0; i < m; i ++)
+        {
+            string rname;
+            cin >> rname;
+    
+            int rcnt;
+            cin >> rcnt;
+            for (int j = 0; j < rcnt; j ++)
+            {
+                string kind, name;
+                cin >> kind >> name;
+    
+                rolecon[name].push_back(rname);
+            }
+        }
+    
+        while (q --)
+        {
+            string pname;
+            cin >> pname;
+    
+            int zulen;
+            cin >> zulen;
+            vector <string> yongzu;
+            for (int i = 0; i < zulen; i ++)
+            {
+                string t;
+                cin >> t;
+                yongzu.push_back(t);
+            }
+            string opname, sk, sn;
+            cin >> opname >> sk >> sn;
+    
+            bool flag = false;
+    
+            for (int i = 0; i < rolecon[pname].size(); i ++)
+            {
+                if (check(rolecon[pname][i], opname, sk, sn))
+                    {
+                        flag = true;
+                        break;
+                    }
+            }
+            if (flag)
+            {
+                cout << 1 << endl;
+                continue;
+            }
+    
+            for (int i = 0; i < yongzu.size(); i ++)
+            {
+                string zname = yongzu[i];
+                for (int j = 0; j < rolecon[zname].size(); j ++)
+                {
+                    if (check(rolecon[zname][j], opname, sk, sn))
+                    {
+                        flag = true;
+                        break;
+                    }
+                }
+                if (flag) break;
+            }
+            if (flag) cout << 1 << endl;
+            else cout << 0 << endl;
+        }
+    
+        return 0;
+    }    
+\end{lstlisting}

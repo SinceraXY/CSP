@@ -1,0 +1,71 @@
+\section{201612-1 中间数}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+直观的算法： 算法直接遍历数组，对每个元素统计左右两侧较小和较大元素的数量，通过比较判断是否为平衡点。算法直观易懂。
+
+使用 vector 动态数组： 使用了 vector 动态数组，提高了代码的灵活性和可维护性，无需显式指定数组的大小。
+
+清晰的变量命名： 使用了具有描述性的变量名，例如 smaller 和 larger，有助于理解代码逻辑。
+
+合理的条件判断： 在内层循环中使用 continue 跳过了与自身比较的情况，避免了不必要的计数。
+
+\subsection{自己原创的代码的点评与注释}
+
+首先对整数序列进行排序，然后找到排序后的中间位置的元素。接着，通过$count_if$函数分别统计小于和大于中间数的元素个数，最后比较这两个数量。如果相等，则存在中间数，输出中间数的值；否则，输出-1表示不存在中间数。
+
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+    #include <vector>
+    #include <algorithm>
+    
+    using namespace std;
+    
+    int main() {
+        // 读取输入的整数序列长度
+        int n;
+        cin >> n;
+    
+        // 读取整数序列
+        vector<int> nums(n);
+        for (int i = 0; i < n; ++i) {
+            cin >> nums[i];
+        }
+    
+        // 对整数序列进行排序
+        sort(nums.begin(), nums.end());
+    
+        // 判断中间数是否存在
+        int middleIndex = n / 2; // 中间数的下标
+        int middleValue = nums[middleIndex]; // 中间数的值
+        int countLess = count_if(nums.begin(), nums.end(), [&](int x) { return x < middleValue; });
+        int countGreater = count_if(nums.begin(), nums.end(), [&](int x) { return x > middleValue; });
+    
+        // 输出结果
+        if (countLess == countGreater) {
+            cout << middleValue << endl; // 存在中间数，输出中间数的值
+        } else {
+            cout << -1 << endl; // 不存在中间数，输出-1
+        }
+    
+        return 0;
+    }    
+\end{lstlisting}

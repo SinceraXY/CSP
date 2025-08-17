@@ -1,0 +1,93 @@
+\section{201312-1 出现次数最多的数}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+简洁的逻辑结构： 代码逻辑相对简单，易于理解。主要通过 map 统计每个整数的出现次数，然后遍历 map 找到出现次数最多的整数。
+
+使用 STL 容器： 使用了 C++ 标准模板库（STL）中的 map 容器，能够方便地对整数及其出现次数进行管理和排序。
+
+使用迭代器遍历容器： 使用了迭代器 countMap.begin()，能够更方便地遍历 map 容器中的元素。
+
+考虑了相等次数的情况： 在找到出现次数最多的整数时，通过比较键值对的值和键来决定更新结果，考虑了出现次数相等的情况，选择键较小的整数。
+
+合理的注释： 通过简单的注释，对代码中关键步骤和数据结构进行了说明，有助于代码的理解。
+
+使用 auto 关键字： 使用了 auto 关键字，简化了代码，减少了冗余的类型声明。
+
+清晰的变量命名： 变量命名相对清晰，例如 countMap 表示整数出现次数的映射，resultNum 表示结果整数，maxCount 表示最大出现次数。
+
+错误处理： 对于键不存在的情况，map 会自动创建并初始化值为 0，避免了因为键不存在而导致的错误。
+
+\subsection{自己原创的代码的点评与注释}
+
+通过使用$unordered\_map$，我们可以有效地记录每个数字的出现次数。
+
+遍历输入的数字，更新映射中对应数字的出现次数。
+
+在遍历映射时，找到出现次数最多的数字。如果有多个数字出现次数相同，则选择最小的那个。
+
+输出最终结果。
+
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+    #include <unordered_map>
+    #include <climits>
+    
+    using namespace std;
+    
+    int main() {
+        // 读取输入的 n
+        int n;
+        cin >> n;
+    
+        // 创建一个无序映射，用于记录每个数字的出现次数
+        unordered_map<int, int> frequencyMap;
+    
+        // 读取 n 个数字，并在映射中更新它们的出现次数
+        for (int i = 0; i < n; ++i) {
+            int num;
+            cin >> num;
+            frequencyMap[num]++;
+        }
+    
+        // 初始化最小的出现次数为最大整数
+        int minFrequency = INT_MAX;
+    
+        // 初始化出现次数最多的数字为0
+        int mostFrequentNumber = 0;
+    
+        // 遍历映射，找出出现次数最多的数字（如果有多个，选择最小的）
+        for (const auto& entry : frequencyMap) {
+            if (entry.second > minFrequency || (entry.second == minFrequency && entry.first > mostFrequentNumber)) {
+                continue; // 如果当前数字的出现次数不大于当前最小出现次数，则跳过
+            }
+    
+            // 更新最小出现次数和出现次数最多的数字
+            minFrequency = entry.second;
+            mostFrequentNumber = entry.first;
+        }
+    
+        // 输出结果
+        cout << mostFrequentNumber << endl;
+    
+        return 0;
+    }    
+\end{lstlisting}

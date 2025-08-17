@@ -1,0 +1,94 @@
+\section{201512-2 消除类游戏}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+使用了标准库 vector： 代码使用了C++标准库中的 vector 来表示矩阵和判断矩阵，这是一个合理的选择，方便了矩阵的动态创建和访问。
+
+合理的嵌套循环结构： 使用了两个嵌套循环，遍历整个矩阵，检测并处理连续相同元素的情况。
+
+清晰的判断条件： 通过判断条件 if (j + 2 < m $\&\&$ ...) 和 if (i + 2 < n $\&\&$ ...)，清晰地表达了寻找连续相同元素的条件。
+
+输出格式控制： 输出时通过三目运算符控制输出 0 或者原元素值，使得输出格式较为整齐。
+
+缺点和改进空间：
+
+未处理输入异常： 代码没有对输入进行异常处理。如果输入不符合预期，可能导致程序行为不可预测。建议添加一些输入验证机制，确保程序稳健性。
+
+\subsection{自己原创的代码的点评与注释}
+
+遍历每一行和每一列，查找是否存在连续三个或更多相同颜色的棋子，如果存在则将它们标记为0表示消除。最后输出消除后的棋盘。
+
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+    #include <vector>
+    
+    using namespace std;
+    
+    // 定义一个函数，用于在一行或一列中查找并消除连续三个或更多相同颜色的棋子
+    void eliminate(vector<vector<int>>& board, int n, int m) {
+        // 检查每一行
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j <= m - 3; ++j) {
+                if (board[i][j] == board[i][j + 1] && board[i][j + 1] == board[i][j + 2]) {
+                    // 将连续三个相同颜色的棋子标记为0，表示消除
+                    board[i][j] = board[i][j + 1] = board[i][j + 2] = 0;
+                }
+            }
+        }
+    
+        // 检查每一列
+        for (int j = 0; j < m; ++j) {
+            for (int i = 0; i <= n - 3; ++i) {
+                if (board[i][j] == board[i + 1][j] && board[i + 1][j] == board[i + 2][j]) {
+                    // 将连续三个相同颜色的棋子标记为0，表示消除
+                    board[i][j] = board[i + 1][j] = board[i + 2][j] = 0;
+                }
+            }
+        }
+    }
+    
+    int main() {
+        // 读取棋盘的行数和列数
+        int n, m;
+        cin >> n >> m;
+    
+        // 读取棋盘上每个方格的颜色
+        vector<vector<int>> board(n, vector<int>(m));
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < m; ++j) {
+                cin >> board[i][j];
+            }
+        }
+    
+        // 调用消除函数
+        eliminate(board, n, m);
+    
+        // 输出消除后的棋盘
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < m; ++j) {
+                cout << board[i][j] << " ";
+            }
+            cout << endl;
+        }
+    
+        return 0;
+    }    
+\end{lstlisting}

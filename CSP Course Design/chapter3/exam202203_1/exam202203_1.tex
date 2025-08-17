@@ -1,0 +1,83 @@
+\section{202203-1 未初始化警告}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+简洁明了： 代码结构简单，逻辑清晰，易于理解。主要使用了循环、条件语句和向量等基本结构，使得代码整体较为简洁。
+
+使用标准库： 使用了 C++ 标准库中的 vector 容器，简化了对一系列元素的管理，提高了代码的可读性和可维护性。
+
+良好的变量命名： 使用了有意义的变量名，如 initialized、$uninitialized\_count$ 等，有助于理解代码的含义。
+
+对数组越界进行了处理： 在定义 vector<bool> initialized(n + 1, false) 时，考虑到数组索引从 1 开始，避免了数组越界的问题。
+
+合理使用布尔类型： 使用布尔类型的向量，减小了内存占用，提高了空间效率。
+
+\subsection{自己原创的代码的点评与注释}
+
+数据结构选择： 使用一个布尔型的 vector（initialized）来记录每个变量是否已被初始化，通过下标与变量编号对应。
+
+遍历赋值语句： 使用一个循环遍历每一条赋值语句，检查右值是否已经被初始化。
+
+未初始化右值计数： 对于每一条赋值语句，如果右值是一个变量且未被初始化，就将未初始化右值的计数器加一。
+
+更新左值状态： 每次处理完一条赋值语句后，将左值标记为已被初始化。
+
+输出结果： 最后输出未初始化右值的赋值语句数量。
+
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+    #include <vector>
+    #include <unordered_set>
+    
+    using namespace std;
+    
+    int main() {
+        // 读入变量数量和赋值语句的条数
+        int n, k;
+        cin >> n >> k;
+    
+        // 初始化变量是否已被赋值的集合
+        vector<bool> initialized(n + 1, false);
+    
+        // 初始化未初始化右值计数器
+        int uninitializedCount = 0;
+    
+        // 处理每一条赋值语句
+        for (int i = 0; i < k; ++i) {
+            int xi, yi;
+            cin >> xi >> yi;
+    
+            // 如果右值是变量，检查是否已被初始化
+            if (yi > 0 && !initialized[yi]) {
+                // 未被初始化，增加计数器
+                uninitializedCount++;
+            }
+    
+            // 将左值标记为已被初始化
+            initialized[xi] = true;
+        }
+    
+        // 输出未初始化右值的赋值语句条数
+        cout << uninitializedCount << endl;
+    
+        return 0;
+    }    
+\end{lstlisting}

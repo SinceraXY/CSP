@@ -1,0 +1,74 @@
+\section{202305-1 重复局面}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+简洁明了： 代码结构清晰，逻辑简单，容易理解。主要通过$unordered\_map$来记录棋盘局面及其出现的次数。
+
+使用STL容器： 使用了C++标准库提供的$unordered\_map$和vector容器，提高了代码的可读性和易用性。
+
+遵循命名规范： 变量和函数命名符合常见的命名规范，提高了代码的可读性。
+
+输入处理： 通过循环读取每个步骤的局面描述，实现了对不同步骤的处理。
+
+\subsection{自己原创的代码的点评与注释}
+
+使用二维数组positions存储每步棋后的局面。
+
+使用$unordered\_map$统计每个局面出现的次数，其中键为局面的字符串表示，值为出现的次数。
+
+遍历每步棋后的局面，更新局面出现次数并输出。
+
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+    #include <vector>
+    #include <unordered_map>
+    
+    using namespace std;
+    
+    int main() {
+        int n;
+        cin >> n;
+    
+        vector<vector<string>> positions(n);  // 存储每步棋后的局面
+        unordered_map<string, int> positionCount;  // 存储每个局面出现的次数
+    
+        // 读取每步棋后的局面
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < 8; ++j) {
+                string row;
+                cin >> row;
+                positions[i].push_back(row);
+            }
+        }
+    
+        // 统计每个局面出现的次数
+        for (int i = 0; i < n; ++i) {
+            string currentPos;
+            for (int j = 0; j < 8; ++j) {
+                currentPos += positions[i][j];
+            }
+            positionCount[currentPos]++;
+            cout << positionCount[currentPos] << endl;  // 输出当前局面是第几次出现
+        }
+    
+        return 0;
+    }    
+\end{lstlisting}

@@ -1,0 +1,63 @@
+\section{201403-1 相反数}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+简洁高效： 代码逻辑相对简单，使用哈希集合 $unordered\_set$ 来实现对相反数的查找。这种方法能够在平均情况下实现 O(1) 的查找效率，从而提高了算法的效率。
+
+使用了哈希集合： 利用哈希集合存储已经遍历过的数字，能够在常数时间内判断是否存在相反数，这在处理大规模数据时效率较高。
+
+用 $unordered\_set$ 避免了排序： 使用哈希集合存储数字，不需要事先对数组进行排序，降低了时间复杂度。
+
+避免了二重循环： 使用哈希集合的方式避免了传统的二重循环查找相反数，减少了算法的时间复杂度。
+
+简单的计数方式： 使用一个变量 count 来计数相反数对的数量，逻辑清晰。
+
+\subsection{自己原创的代码的点评与注释}
+
+使用$unordered\_set$来存储整数，这样可以快速查找一个整数的相反数是否存在。遍历整数数组时，对于每个整数，只需查找其相反数是否在$unordered\_set$中，如果存在，则说明找到了一对相反数。最后，输出计数器的一半，因为每对相反数都被计数了两次。
+
+\begin{lstlisting}[language=C++]
+
+    #include <iostream>
+    #include <unordered_set>
+    #include <vector>
+    
+    using namespace std;
+    
+    int main() {
+        int N;
+        cin >> N;
+        unordered_set<int> numbers;
+        vector<int> input(N);
+        for (int i = 0; i < N; ++i) {
+            cin >> input[i];
+            numbers.insert(input[i]);
+        }
+        int count = 0;
+        for (int i = 0; i < N; ++i) {
+            if (numbers.count(-input[i]) > 0) {
+                count++;
+            }
+        }
+        cout << count / 2 << endl;                // Each pair is counted twice (a and -a)
+        return 0;
+    }
+\end{lstlisting}

@@ -1,0 +1,197 @@
+\section{202206-2 寻宝！大冒险！}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+使用了结构体和 pair：通过定义结构体 pair<int, int> 来表示树木的坐标，提高了代码的可读性和结构化程度。
+
+使用了向量容器：通过使用 vector 容器来存储树木的坐标和藏宝图的信息，方便了对树木和藏宝图的动态管理，如添加、删除等操作。
+
+使用了 find 算法：在检查树木的坐标是否存在于树木数组中时，使用了 find 算法，提高了代码的简洁性和可读性。
+
+使用了静态转换：通过使用 $static\_cast$ 对布尔值进行静态类型转换，使得代码更加明确。
+
+代码逻辑清晰：通过嵌套循环逐一检查树木的坐标是否与藏宝图相符，代码逻辑相对清晰，易于理解。
+
+使用了初始化列表：在声明 $treasure\_map$ 时使用了初始化列表，提高了代码的简洁性和效率。
+
+缺点和改进空间：
+
+缺少输入验证：代码没有对输入的数据进行验证，特别是在输入向量大小和元素的情况下。如果输入的数据不符合要求，可能会导致程序运行错误。建议添加输入数据的验证。
+
+\subsection{自己原创的代码的点评与注释}
+
+读取输入数据，包括树的坐标、绿化图和藏宝图的大小。
+
+使用二维向量存储树的坐标和藏宝图。
+
+遍历绿化图上可能的左下角坐标，判断是否存在与藏宝图对应的坐标。
+
+统计满足条件的坐标数量并输出结果。
+
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+    #include <vector>
+    
+    using namespace std;
+    
+    int main() {
+        // 读入输入数据
+        int n, L, S;
+        cin >> n >> L >> S;
+    
+        // 用于记录树的坐标
+        vector<pair<int, int>> treeCoordinates;
+    
+        // 读入树的坐标
+        for (int i = 0; i < n; ++i) {
+            int x, y;
+            cin >> x >> y;
+            treeCoordinates.push_back({x, y});
+        }
+    
+        // 用于记录藏宝图
+        vector<vector<int>> treasureMap(S + 1, vector<int>(S + 1));
+    
+        // 读入藏宝图
+        for (int i = S; i >= 0; --i) {
+            for (int j = 0; j <= S; ++j) {
+                cin >> treasureMap[i][j];
+            }
+        }
+    
+        // 统计满足条件的坐标数量
+        int count = 0;
+    
+        // 遍历绿化图上可能的左下角坐标
+        for (int x = 0; x <= L - S; ++x) {
+            for (int y = 0; y <= L - S; ++y) {
+                // 判断是否满足条件
+                bool valid = true;
+                for (int i = 0; i <= S; ++i) {
+                    for (int j = 0; j <= S; ++j) {
+                        // 判断绿化图上的坐标是否与藏宝图对应
+                        if (treasureMap[i][j] == 1 && treasureMap[i][j] != treeCoordinates[x + i].second) {
+                            valid = false;
+                            break;
+                        }
+                    }
+                    if (!valid) {
+                        break;
+                    }
+                }
+    
+                // 如果满足条件，则计数加一
+                if (valid) {
+                    ++count;
+                }
+            }
+        }
+    
+        // 输出结果
+        cout << count << endl;
+    
+        return 0;
+    }    
+\end{lstlisting}
+
+\subsection{你推荐的代码}
+
+\href{202206-2 寻宝！大冒险！}{https://blog.csdn.net/qq\_51800570/article/details/126673741}
+
+\subsection{网上的代码}
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+    #include <cstring>
+    #include <algorithm>
+    #include <vector>
+    
+    using namespace std;
+    typedef pair <int,int> PII;
+    
+    vector <PII> v;
+    int m[60][60];
+    int n, L, S;
+    
+    bool check(int x, int y)
+    {
+        //cout << endl;
+        for (int i = S; i >= 0; i --)
+        {
+            for (int j = 0; j <= S; j ++)
+            {
+                int cx = S - i; //行的逆序，可以选择在存储的地方就改变，也可以在操作时计算原本的下标
+                int cy = j;
+                //cout << m[i][j] << " " << cx + x << " " << cy + y << endl;
+    
+                if (x + cx < 0 || x + cx > L || y + cy > L || y + cy < 0) return false; //如果小地图超出大地图的范围，停止
+                bool flag = false;
+                for (auto t : v)
+                {
+                    if (x + cx == t.first && y + cy == t.second)
+                    {
+                        flag = true;
+                        break;
+                    }
+                }
+                //cout << m[i][j] << " " << flag << " " << cx + x << " " << cy + y << endl;
+                if ((m[i][j] && !flag) || (!m[i][j] && flag)) return false;
+            }
+        }
+        //cout << 1;
+        return true;
+    }
+    
+    int main()
+    {
+        cin >> n >> L >> S;
+        memset(m, 0, sizeof(m));
+    
+        for (int i = 0; i < n; i ++)
+        {
+            int x, y;
+            cin >> x >> y;
+            v.push_back({x, y});
+            //cout << x << " " << y << endl;
+        }
+    
+        for (int i = 0; i <= S; i ++)
+        {
+            for (int j = 0; j <= S; j ++)
+            {
+                cin >> m[i][j]; 
+                //最先输入的是 B[S][0]⋯B[S][S] 一行，B[0][0]⋯B[0][S] 一行最后输入
+                //不是正宗的数学坐标系啊，只是行的逆序罢了，这个地方卡了我一天，也是挺无语的
+            }
+        }
+    
+        int res = 0;
+        for (int i = 0; i < n; i ++)
+        {
+            if (check(v[i].first, v[i].second))
+            {
+                res ++;
+                //cout << v[i].first << " " << v[i].second << endl;
+            }
+        }
+        cout << res;
+        return 0;
+    }    
+\end{lstlisting}

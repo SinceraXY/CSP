@@ -1,0 +1,91 @@
+\section{202305-2 矩阵运算}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+使用了合适的数据结构：使用了二维向量(vector of vectors)来表示矩阵，这是一个在C++中灵活且方便的数据结构。
+
+代码结构清晰：通过使用嵌套的循环，代码结构相对清晰，易于理解。
+
+使用了适当的数据类型：在矩阵乘法过程中，使用了long long类型来处理可能的溢出问题，保证了计算结果的准确性。
+
+缺点和改进空间：
+
+未进行错误检查：代码没有对输入数据的合法性进行验证，如果输入的数据不符合要求，可能会导致程序运行错误。建议添加输入数据的验证。
+
+\subsection{自己原创的代码的点评与注释}
+
+通过嵌套的循环读取矩阵 Q、K、V 以及向量 W 的元素。
+
+在计算结果时，利用嵌套循环遍历矩阵元素，按照题目描述的公式进行计算。
+
+输出计算结果。
+
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+    #include <vector>
+    using namespace std;
+    int main() {
+        // 读取输入数据
+        int n, d;
+        cin >> n >> d;
+    
+        // 读取矩阵 Q
+        vector<vector<int>> Q(n, vector<int>(d));
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < d; ++j) {
+                cin >> Q[i][j];
+            }
+        }
+    
+        // 读取矩阵 K
+        vector<vector<int>> K(n, vector<int>(d));
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < d; ++j) {
+                cin >> K[i][j];
+            }
+        }
+    
+        // 读取矩阵 V
+        vector<vector<int>> V(n, vector<int>(d));
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < d; ++j) {
+                cin >> V[i][j];
+            }
+        }
+    
+        // 读取向量 W
+        vector<int> W(n);
+        for (int i = 0; i < n; ++i) {
+            cin >> W[i];
+        }
+    
+        // 计算结果并输出
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < d; ++j) {
+                // 计算 (Q × KT) 中第 i 行的每个元素与 W(i) 相乘的结果，并与 V 相乘
+                cout << W[i] * (Q[i][0] * K[i][j] + Q[i][1] * K[i][j] + Q[i][2] * K[i][j]) * V[i][j] << " ";
+            }
+            cout << endl;
+        }
+    
+        return 0;
+    }    
+\end{lstlisting}

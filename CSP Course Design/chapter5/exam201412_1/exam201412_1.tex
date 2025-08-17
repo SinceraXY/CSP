@@ -1,0 +1,84 @@
+\section{201412-1 门禁系统}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+简洁明了： 代码逻辑相对简单，主要通过 $unordered\_map$ 实现了对读者编号出现次数的统计。整体结构清晰，易于理解。
+
+使用了标准库容器： 使用了 C++ 标准库中的 $unordered\_map$ 容器，提供了高效的键值对存储和检索功能，不需要手动实现哈希表。
+
+实时更新读者编号出现次数： 在遍历每一条记录时，实时更新对应读者编号在 $unordered\_map$ 中的次数，避免了额外的循环。
+
+适用于大规模数据： 由于使用了哈希表，该算法在平均情况下具有 O(1) 的插入和检索效率，适用于处理大规模数据。
+
+\subsection{自己原创的代码的点评与注释}
+
+使用$unordered\_map$记录每位读者最后一次出现的位置。
+
+对于每条记录，如果读者已经出现过，计算当前次数并更新记录，否则记录为1。
+
+输出结果。
+
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+    #include <unordered_map>
+    #include <vector>
+    
+    using namespace std;
+    
+    int main() {
+        // 读取记录条数
+        int n;
+        cin >> n;
+    
+        // 用unordered_map记录每位读者最后一次出现的位置
+        unordered_map<int, int> lastOccurrence;
+    
+        // 存储每条记录中的读者编号是第几次出现
+        vector<int> occurrenceCount;
+    
+        // 处理每条记录
+        for (int i = 0; i < n; ++i) {
+            int reader;
+            cin >> reader;
+    
+            // 如果读者已经出现过，更新记录为当前次数
+            if (lastOccurrence.find(reader) != lastOccurrence.end()) {
+                occurrenceCount.push_back(i - lastOccurrence[reader] + 1);
+            } else {
+                // 如果是第一次出现，记录为1
+                occurrenceCount.push_back(1);
+            }
+    
+            // 更新读者最后一次出现的位置
+            lastOccurrence[reader] = i;
+        }
+    
+        // 输出结果
+        for (int i = 0; i < n; ++i) {
+            cout << occurrenceCount[i];
+            if (i < n - 1) {
+                cout << " ";
+            }
+        }
+    
+        return 0;
+    }    
+\end{lstlisting}

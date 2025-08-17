@@ -1,0 +1,194 @@
+\section{201604-2 俄罗斯方块}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+使用了常量定义： 使用 $const int GRID\_SIZE = 20$; 定义了常量，提高了代码的可读性和可维护性。
+
+使用了 memcpy 进行数组拷贝： 使用了 memcpy 进行数组 grid 到 tmp 的拷贝，这是一种高效的拷贝方式。
+
+函数抽象： 将尝试放置方块的逻辑抽象成了 tryPlaceBlock 函数，提高了代码的可读性和可维护性。
+
+在最下面一行增加一层代码： 在 for 循环中增加了一行代码 grid[15][i] = 1;在方格图 grid 最下面增加一层地板,这样做的目的是简化边界检查逻辑,增加了游戏性。
+
+缺点和改进空间：
+
+全局变量使用： 使用了全局变量 row 和 col，这样的全局变量容易导致命名空间污染，建议将其作为局部变量传递给需要的函数。
+
+未考虑输入异常： 代码没有对输入进行异常处理。如果输入不符合预期，可能导致程序行为不可预测。建议添加一些输入验证机制，确保程序稳健性。
+
+\subsection{自己原创的代码的点评与注释}
+
+接受输入，模拟俄罗斯方块板块下落，并输出最终的方格图。主要思路是从底部找到板块的落脚点，然后将板块复制到方格图中。函数printGrid用于输出方格图，函数dropBlock用于模拟板块下落。
+
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+    using namespace std;
+    
+    const int ROWS = 15;
+    const int COLS = 10;
+    
+    // 函数声明
+    void printGrid(int grid[ROWS][COLS]);
+    void dropBlock(int grid[ROWS][COLS], int block[4][4], int col);
+    
+    int main() {
+        // 读取初始方格图
+        int grid[ROWS][COLS];
+        for (int i = 0; i < ROWS; ++i) {
+            for (int j = 0; j < COLS; ++j) {
+                cin >> grid[i][j];
+            }
+        }
+    
+        // 读取板块形状
+        int block[4][4];
+        for (int i = 0; i < 4; ++i) {
+            for (int j = 0; j < 4; ++j) {
+                cin >> block[i][j];
+            }
+        }
+    
+        // 读取板块初始位置
+        int col;
+        cin >> col;
+    
+        // 模拟板块下落
+        dropBlock(grid, block, col);
+    
+        // 输出最终方格图
+        printGrid(grid);
+    
+        return 0;
+    }
+    
+    // 输出方格图
+    void printGrid(int grid[ROWS][COLS]) {
+        for (int i = 0; i < ROWS; ++i) {
+            for (int j = 0; j < COLS; ++j) {
+                cout << grid[i][j] << " ";
+            }
+            cout << endl;
+        }
+    }
+    
+    // 模拟板块下落
+    void dropBlock(int grid[ROWS][COLS], int block[4][4], int col) {
+        // 从底部开始找到板块的落脚点
+        int row = ROWS - 1;
+        while (row >= 0 && block[3][col] == 0) {
+            row--;
+        }
+    
+        // 将板块复制到方格图中
+        for (int i = 0; i < 4; ++i) {
+            for (int j = 0; j < 4; ++j) {
+                if (block[i][j] == 1) {
+                    grid[row + i][col + j] = 1;
+                }
+            }
+        }
+    }    
+\end{lstlisting}
+
+\subsection{你推荐的代码}
+
+\href{201604-2 俄罗斯方块}{https://blog.csdn.net/tigerisland45/article/details/54790942}
+
+\subsection{网上的代码}
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+     
+    const int ROW = 15;
+    const int COL = 10;
+    const int N = 4;
+     
+    int board[ROW+1][COL];
+    int block[N][N];
+    struct {
+        int row, col;
+    } coords[N];
+     
+    using namespace std;
+     
+    int main()
+    {
+        int row, col;
+     
+        // 输入数据
+        for(int i=0; i<ROW; i++)
+            for(int j=0; j<COL; j++)
+                cin >> board[i][j];
+        for(int i=0; i<N; i++)
+            for(int j=0; j<N; j++)
+                cin >> block[i][j];
+        cin >> col;
+     
+        // 底边全放1
+        for(int j=0; j<COL; j++)
+            board[ROW][j] = 1;
+     
+        // 提取小方块坐标
+        int k = 0;
+        for(int i=N-1; i>=0; i--)
+            for(int j=0; j<N; j++)
+                if(block[i][j] == 1) {
+                    coords[k].row = i;
+                    coords[k].col = j;
+                    k++;
+                }
+     
+        // 模拟小方块落下过程
+        row = 1;
+        col--;
+        bool checkflag;
+        for(;;) {
+            checkflag = false;
+     
+            for(int i=0; i<N; i++)
+                if(board[row + coords[i].row][col + coords[i].col] == 1) {
+                    checkflag = true;
+                    break;
+                }
+     
+            if(checkflag)
+                break;
+     
+            row++;
+        }
+        row--;
+     
+        // 合并小方块到方格
+        for(int i=0; i<N; i++)
+            board[row + coords[i].row][col + coords[i].col] = 1;
+     
+        // 输出结果
+        for(int i=0; i<ROW; i++) {
+            for(int j=0; j<COL; j++) {
+                if(j != 0)
+                    cout << " ";
+                cout << board[i][j];
+            }
+            cout << endl;
+        }
+     
+        return 0;
+    }
+\end{lstlisting}

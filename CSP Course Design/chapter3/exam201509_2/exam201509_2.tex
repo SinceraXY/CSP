@@ -1,0 +1,83 @@
+\section{201509-2 日期计算}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+简洁明了的逻辑： 代码逻辑相对简单，清晰易懂。通过判断是否为闰年，然后根据每个月的天数计算月份和天数。
+
+使用数组存储月份天数： 使用数组$normal$存储每个月的天数，提高了代码的可读性和维护性。
+
+使用布尔类型表示是否为闰年： 使用$leap\_year$布尔变量表示是否为闰年，增加了代码的可读性。
+
+缺点和改进空间：
+
+未处理输入异常： 代码没有对输入进行异常处理。如果输入不符合预期，可能导致程序行为不可预测。建议添加一些输入验证机制，确保程序稳健性。
+
+\subsection{自己原创的代码的点评与注释}
+
+编写一个函数 isLeapYear 判断是否为闰年，根据题目中的条件进行判断。
+
+编写一个函数 calculateDate 根据输入的年份和天数计算月份和日期。
+
+在 main 函数中读取输入的年份和天数，调用 calculateDate 函数计算结果，最后输出月份和日期。
+
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+    using namespace std;
+    // 判断是否为闰年的函数
+    bool isLeapYear(int year) {
+        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+    }
+    // 计算某年某一天是几月几日的函数
+    void calculateDate(int year, int dayOfYear, int &month, int &day) {
+        // 定义每个月的天数
+        int daysInMonth[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    
+        // 如果是闰年，2月的天数为29
+        if (isLeapYear(year)) {
+            daysInMonth[2] = 29;
+        }
+        // 初始化月份和日期
+        month = 1;
+        day = 0;
+        // 循环减去每个月的天数，直到剩余天数小于等于当前月的天数
+        while (dayOfYear > daysInMonth[month]) {
+            dayOfYear -= daysInMonth[month];
+            month++;
+        }
+        // 剩余的天数即为日期
+        day = dayOfYear;
+    }
+    int main() {
+        // 输入年份和天数
+        int year, dayOfYear;
+        cin >> year >> dayOfYear;
+    
+        // 计算月份和日期
+        int month, day;
+        calculateDate(year, dayOfYear, month, day);
+    
+        // 输出结果
+        cout << month << endl;
+        cout << day << endl;
+    
+        return 0;
+    }    
+\end{lstlisting}

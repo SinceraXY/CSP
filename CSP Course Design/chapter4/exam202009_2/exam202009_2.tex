@@ -1,0 +1,103 @@
+\section{202009-2 风险人群筛查}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+合理的数据结构选择： 使用了两个vector<int>来存储通过和滞留的人数，这是合理的选择，可以方便地对结果进行统计。
+
+合理的循环嵌套结构： 使用了两层嵌套循环，外层遍历人，内层遍历时间，对每个人在每个时间点的位置进行判断。这样的结构较为清晰。
+
+逻辑清晰： 通过布尔变量inside来表示人是否在矩形区域内，通过cnt来表示连续在矩形区域内的时间数，逻辑相对清晰。
+
+合理的变量命名： 变量命名相对清晰，有助于理解代码的功能
+
+缺点和改进空间：
+
+未处理输入异常： 代码没有对输入进行异常处理。如果输入不符合预期，可能导致程序行为不可预测。建议添加一些输入验证机制，确保程序稳健性。
+
+\subsection{自己原创的代码的点评与注释}
+
+通过循环读取每个居民的位置记录。
+
+遍历位置记录，判断每个时刻是否位于高危区域内。
+
+统计经过高危区域的人数（有任意一个时刻在高危区域内即可）。
+
+判断是否曾在高危区域逗留，需要连续 k 个或更多时刻在高危区域内。
+
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+    #include <vector>
+    
+    using namespace std;
+    
+    int main() {
+        // 读取输入参数
+        int n, k, t, xl, yd, xr, yu;
+        cin >> n >> k >> t >> xl >> yd >> xr >> yu;
+    
+        // 记录经过高危区域和逗留的人数
+        int passCount = 0, stayCount = 0;
+    
+        // 遍历每个居民
+        for (int i = 0; i < n; ++i) {
+            // 读取居民的位置记录
+            vector<pair<int, int>> positions;
+            for (int j = 0; j < t; ++j) {
+                int x, y;
+                cin >> x >> y;
+                positions.push_back({x, y});
+            }
+    
+            // 记录连续位于高危区域的次数
+            int consecutiveCount = 0;
+    
+            // 遍历位置记录
+            for (int j = 0; j < t; ++j) {
+                // 判断是否位于高危区域
+                if (positions[j].first >= xl && positions[j].first <= xr &&
+                    positions[j].second >= yd && positions[j].second <= yu) {
+                    // 位于高危区域，连续计数加一
+                    consecutiveCount++;
+                } else {
+                    // 不位于高危区域，重置连续计数
+                    consecutiveCount = 0;
+                }
+    
+                // 判断是否满足逗留条件
+                if (consecutiveCount >= k) {
+                    stayCount++;
+                    break; // 已经满足逗留条件，不再判断后续时刻
+                }
+            }
+    
+            // 判断是否经过高危区域
+            if (consecutiveCount > 0) {
+                passCount++;
+            }
+        }
+    
+        // 输出结果
+        cout << passCount << endl;
+        cout << stayCount << endl;
+    
+        return 0;
+    }
+\end{lstlisting}

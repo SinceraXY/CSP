@@ -1,0 +1,108 @@
+\section{201503-2 数字排序}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+简洁的逻辑结构： 代码逻辑相对简单，易于理解。主要通过 map 统计每个整数的出现次数，然后使用 multimap 进行排序，最后遍历输出。
+
+使用 STL 容器： 使用了 C++ 标准模板库（STL）中的 map 和 multimap 容器，能够方便地对整数及其出现次数进行管理、排序和输出。
+
+使用 auto 关键字： 使用了 auto 关键字，简化了代码，减少了冗余的类型声明。
+
+清晰的变量命名： 变量命名相对清晰，例如 $count\_map$ 表示整数出现次数的映射，$reversed\_count\_multimap$ 表示按次数降序排列的多重映射。
+
+使用迭代器遍历容器： 使用了迭代器进行容器的遍历，提高了代码的可读性。
+
+正确处理相同次数的整数： 使用 multimap 存储相同次数的整数，保证了在输出时能够按照整数升序排列。
+
+使用 greater 比较器： 在实例化 multimap 时使用了 greater 比较器，确保了次数降序排列。
+
+\subsection{自己原创的代码的点评与注释}
+
+定义一个结构体 NumberCount 来存储整数及其出现的次数。结构体中包含整数 number 和次数 count。
+
+使用 $unordered\_map$ 来统计每个整数出现的次数，其中键是整数值，值是对应的出现次数。
+
+遍历输入的整数序列，更新 countMap 中每个整数的出现次数。
+
+将 countMap 中的统计结果复制到一个 vector 中，每个元素是一个 NumberCount 结构体。
+
+定义 NumberCount 结构体的比较函数，用于排序。排序规则是按出现次数递减排序，如果次数相同，则按整数值递增排序。
+
+使用 std::sort 函数对 numbers 向量进行排序。
+
+输出排序后的结果，即每个整数及其出现次数。
+
+\begin{lstlisting}[language=C++]
+
+    #include <iostream>
+    #include <vector>
+    #include <unordered_map>
+    #include <algorithm>
+    
+    using namespace std;
+    
+    struct NumberCount {
+        int number;
+        int count;
+    
+        // 构造函数
+        NumberCount(int num, int cnt) : number(num), count(cnt) {}
+    
+        // 用于排序的比较函数
+        bool operator<(const NumberCount& other) const {
+            // 按出现次数递减排序，如果次数相同，则按数值递增排序
+            if (count != other.count) {
+                return count > other.count;
+            }
+            return number < other.number;
+        }
+    };
+    
+    int main() {
+        int n;
+        cin >> n;
+    
+        unordered_map<int, int> countMap; // 用于统计每个整数出现的次数
+        vector<NumberCount> numbers;      // 存储NumberCount结构体，便于排序
+    
+        for (int i = 0; i < n; ++i) {
+            int num;
+            cin >> num;
+            countMap[num]++;
+        }
+    
+        // 将统计结果存入NumberCount结构体中
+        for (const auto& pair : countMap) {
+            numbers.emplace_back(pair.first, pair.second);
+        }
+    
+        // 对NumberCount结构体进行排序
+        sort(numbers.begin(), numbers.end());
+    
+        // 输出结果
+        for (const auto& numCount : numbers) {
+            cout << numCount.number << " " << numCount.count << endl;
+        }
+    
+        return 0;
+    }    
+
+\end{lstlisting}

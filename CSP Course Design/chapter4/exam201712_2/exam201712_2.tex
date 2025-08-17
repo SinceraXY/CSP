@@ -1,0 +1,83 @@
+\section{201712-2 游戏}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+使用了标准库vector：使用了C++的标准库vector来存储每个人的编号，这是一个合适的选择，可以方便地进行插入和删除操作。
+
+简洁的初始化：利用循环简洁地初始化了children向量，使其包含1到n的编号。
+
+使用了合理的循环结构：使用了两个嵌套循环结构，其中外层循环迭代直到只剩下一个人，内层循环处理报数的逻辑。
+
+缺点和改进空间：
+
+不够高效：使用erase操作来删除vector中的元素，这涉及到移动后续元素，导致时间复杂度较高，特别是当k较大时。可以考虑使用链表等数据结构，以提高删除操作的效率。
+
+未处理输入异常：代码没有对输入进行异常处理，如果输入不符合预期，可能导致程序行为不可预测。建议添加一些输入验证机制，确保程序稳健性。
+
+\subsection{自己原创的代码的点评与注释}
+
+使用一个数组来表示每个小朋友是否被淘汰。在循环中，按照规则报数，淘汰符合条件的小朋友，直到只剩下一个小朋友为止。最后输出获胜小朋友的编号。
+
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+    using namespace std;
+    
+    int main() {
+        // 读取输入的 n 和 k
+        int n, k;
+        cin >> n >> k;
+    
+        // 定义一个数组表示小朋友是否被淘汰，初始都为 false
+        bool eliminated[1001] = {false};
+    
+        // 初始化报数和当前小朋友编号
+        int count = 0;
+        int current = 1;
+    
+        // 当还有多于一个小朋友时进行循环
+        while (count < n - 1) {
+            // 如果当前小朋友没有被淘汰
+            if (!eliminated[current]) {
+                // 报数加1
+                count++;
+    
+                // 如果报的数是 k 的倍数或者末位数为 k，则淘汰当前小朋友
+                if (count % k == 0 || count % 10 == k) {
+                    eliminated[current] = true;
+                    count--;
+                }
+            }
+    
+            // 移动到下一个小朋友
+            current = (current % n) + 1;
+        }
+    
+        // 输出最后获胜的小朋友编号
+        for (int i = 1; i <= n; i++) {
+            if (!eliminated[i]) {
+                cout << i << endl;
+                break;
+            }
+        }
+    
+        return 0;
+    }    
+\end{lstlisting}

@@ -1,0 +1,128 @@
+\section{201503-3 节日}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+使用结构体： 使用结构体Date将日期相关的信息封装在一起，提高了代码的可读性和可维护性。
+
+成员函数的封装： isLeap() 和 daysInMonth() 函数封装了与日期相关的逻辑，使代码更加模块化。
+
+明确函数的功能： 函数和成员变量的命名相对清晰，有助于理解代码的功能。
+
+合理利用结构体成员： 使用结构体成员变量表示年、月、日和星期，使代码更直观。
+
+使用 printf 进行格式化输出： 使用 printf 提高了输出格式的灵活性和可读性。
+
+处理日期的逻辑清晰： addOneDay() 函数处理日期的逻辑相对清晰，考虑了月末和年末的进位。
+
+bool isLastDay() 函数的逻辑非常简单，通过逻辑与运算符$\&\&$检查当前日期的月份是否为12（即12月）,且日期是否为31日,这种简单直接的实现有助于减少代码的复杂性和错误的可能性。
+并且这个函数体现了面向对象编程的封装性。通过将日期相关的逻辑封装在结构体内部，提高了代码的模块化和可维护性。
+
+缺点和改进空间：
+
+输入异常处理： 缺少对输入的合法性检查。应该考虑在读入a、b、c、y1和y2之前添加输入合法性的检查，以确保输入的有效性。
+
+\subsection{自己原创的代码的点评与注释}
+
+getFirstDayOfWeek 函数用于计算某年某月第一天是星期几， calculateDate 函数用于计算某年某月第 b 个星期 c 的日期。在 main 函数中，按照要求输出结果。
+
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+    #include <iomanip>
+    
+    using namespace std;
+    
+    // 判断是否是闰年的函数
+    bool isLeapYear(int year) {
+        if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
+            return true;
+        }
+        return false;
+    }
+    
+    // 计算某年某月第一天是星期几的函数
+    int getFirstDayOfWeek(int year, int month) {
+        // 已知 1850 年 1 月 1 日是星期二
+        int days = 0;
+        for (int i = 1850; i < year; ++i) {
+            days += isLeapYear(i) ? 366 : 365;
+        }
+        for (int i = 1; i < month; ++i) {
+            switch (i) {
+                case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                    days += 31;
+                    break;
+                case 4: case 6: case 9: case 11:
+                    days += 30;
+                    break;
+                case 2:
+                    days += isLeapYear(year) ? 29 : 28;
+                    break;
+            }
+        }
+        return (days + 2) % 7;  // 2 corresponds to the first day being Tuesday
+    }
+    
+    // 计算某年某月第 b 个星期 c 的日期的函数
+    string calculateDate(int year, int month, int b, int c) {
+        int firstDayOfWeek = getFirstDayOfWeek(year, month);
+        int targetDay = c - firstDayOfWeek + (b - 1) * 7;
+    
+        // 如果 targetDay 小于等于零或者大于该月的天数，表示不存在符合条件的日期
+        if (targetDay <= 0 || targetDay > 31) {
+            return "none";
+        }
+    
+        // 如果 targetDay 大于该月的天数，取最后一天
+        int daysInMonth;
+        switch (month) {
+            case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                daysInMonth = 31;
+                break;
+            case 4: case 6: case 9: case 11:
+                daysInMonth = 30;
+                break;
+            case 2:
+                daysInMonth = isLeapYear(year) ? 29 : 28;
+                break;
+        }
+    
+        if (targetDay > daysInMonth) {
+            targetDay = daysInMonth;
+        }
+    
+        // 格式化输出日期
+        stringstream ss;
+        ss << year << "/" << setw(2) << setfill('0') << month << "/" << setw(2) << setfill('0') << targetDay;
+        return ss.str();
+    }
+    
+    int main() {
+        int a, b, c, y1, y2;
+        cin >> a >> b >> c >> y1 >> y2;
+    
+        for (int year = y1; year <= y2; ++year) {
+            string result = calculateDate(year, a, b, c);
+            cout << result << endl;
+        }
+    
+        return 0;
+    }    
+\end{lstlisting}

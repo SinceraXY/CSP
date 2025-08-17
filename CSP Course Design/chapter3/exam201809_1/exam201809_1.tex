@@ -1,0 +1,97 @@
+\section{201809-1 卖菜}
+
+\subsection{题目描述}%题目描述请保留在文档内
+在一条街上有 n 个卖菜的商店，按 1 至 n 的顺序排成一排，这些商店都卖一种蔬菜。
+
+第一天，每个商店都自己定了一个价格。店主们希望自己的菜价和其他商店的一致，第二天，每
+一家商店都会根据他自己和相邻商店的价格调整自己的价格。具体的，每家商店都会将第二天的菜价
+设置为自己和相邻商店第一天菜价的平均值（用去尾法取整）。
+
+注意，编号为 1 的商店只有一个相邻的商店 2，编号为 n 的商店只有一个相邻的商店 n − 1，其他
+编号为 i 的商店有两个相邻的商店 i − 1 和 i + 1。
+
+给定第一天各个商店的菜价，请计算第二天每个商店的菜价。
+\subsection{输入格式}
+
+输入的第一行包含一个整数$n$，表示商店的数量。
+
+第二行包含$n$个整数，依次表示每个商店第一天的菜价。
+
+\subsection{输出格式}
+
+输出一行，包含$n$个正整数，依次表示每个商店第二天的菜价。
+
+\subsection{样例输入}
+
+\begin{lstlisting}[numbers=none]
+8
+4 1 3 1 6 5 17 9
+\end{lstlisting}
+
+\subsection{样例输出}
+
+\begin{lstlisting}[numbers=none]
+2 2 1 3 4 9 10 13
+\end{lstlisting}
+
+\subsection{评测用例规模与约定}
+
+对于所有评测用例,$2\leq n\leq1000$,第一天每个商店的菜价为不超过 10000 的正整数。
+
+\subsection{对讲义中代码的点评或纠错}
+清晰简单： 代码结构相对简单，易于理解。它使用了一个循环来计算移动平均值，然后输出结果。
+
+使用了有意义的变量名： 变量名命名得相对清晰，例如，prices数组用于存储原始价格数据，newprices数组用于存储移动平均值。
+
+使用常量： 代码中使用const int MAX = 1000;来定义了一个常量，以表示数组的最大长度，这有助于提高代码的可维护性。
+
+\subsection{自己原创的代码的点评与注释}
+
+首先读取商店数量和第一天的菜价，然后根据每个商店及其相邻商店的菜价，计算出第二天的菜价。最后，输出第二天每个商店的菜价。
+
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+    #include <vector>
+    
+    using namespace std;
+    
+    int main() {
+        // 读取商店数量
+        int n;
+        cin >> n;
+    
+        // 读取第一天各个商店的菜价
+        vector<int> prices(n);
+        for (int i = 0; i < n; ++i) {
+            cin >> prices[i];
+        }
+    
+        // 计算第二天每个商店的菜价
+        vector<int> nextDayPrices(n);
+        for (int i = 0; i < n; ++i) {
+            // 初始化平均值为当前商店的菜价
+            int average = prices[i];
+    
+            // 如果不是第一个商店，加上左边商店的菜价
+            if (i > 0) {
+                average += prices[i - 1];
+            }
+    
+            // 如果不是最后一个商店，加上右边商店的菜价
+            if (i < n - 1) {
+                average += prices[i + 1];
+            }
+    
+            // 计算平均值并更新第二天的菜价
+            nextDayPrices[i] = average / ((i > 0) + 1 + (i < n - 1));
+        }
+    
+        // 输出第二天每个商店的菜价
+        for (int i = 0; i < n; ++i) {
+            cout << nextDayPrices[i] << " ";
+        }
+    
+        return 0;
+    }
+    
+\end{lstlisting}

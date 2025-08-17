@@ -1,0 +1,101 @@
+\section{201803-2 碰撞的小球}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+使用了结构体：通过定义结构体Ball来表示球的属性，提高了代码的可读性和结构化程度。
+
+使用了函数：通过将球的移动和碰撞模拟封装成了两个函数moveBalls和checkCollisions，提高了代码的模块化和可维护性。
+
+采用了向量容器：通过使用vector容器来存储球的信息，方便了对球的动态管理，如添加、删除等操作。
+
+逻辑清晰：代码逻辑相对清晰，模拟了球的移动和碰撞过程，并在每个时间步骤内更新了球的位置。
+
+缺点和改进空间：
+
+没有进行输入数据的合法性验证：代码没有对输入的数据进行验证，如果输入的数据不符合要求，可能会导致程序运行错误。建议添加输入数据的验证。
+
+\subsection{你推荐的代码}
+
+\href{201803-2 碰撞的小球}{https://blog.csdn.net/tigerisland45/article/details/81660041}
+
+\subsection{网上的代码}
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+    #include <algorithm>
+     
+    using namespace std;
+     
+    const int N = 100;
+    struct Node {
+        int id;         // 小球编号
+        int pos;        // 位置
+        int step;       // 运动方向，1表示向右，-1表示向左
+    } b[N];
+     
+    bool cmp1(Node a, Node b)
+    {
+        return a.pos < b.pos;
+    }
+     
+    bool cmp2(Node a, Node b)
+    {
+        return a.id < b.id;
+    }
+     
+     
+    int main()
+    {
+        int n, l, t, id = 0;
+     
+        cin >> n >> l >> t;
+        for(int i = 0; i < n; i++) {
+            b[i].id = ++id;
+            cin >> b[i].pos;
+            // 开始往右走，到达两端则回头
+            b[i].step = 1;
+            if(b[i].pos == l || b[i].pos == 0)
+                b[i].step = -b[i].step;
+        }
+     
+        sort(b, b + n, cmp1);
+        for(int i = 0; i < t; i++) {
+            // 走一步
+            for(int j = 0; j < n; j++) {
+                b[j].pos += b[j].step;
+                // 到达两端则回头
+                if(b[j].pos == l || b[j].pos == 0)
+                    b[j].step = -b[j].step;
+            }
+     
+            // 判断是否碰头，碰头则掉头（排序后只需要比较相邻的）
+            for(int j = 1; j < n; j++)
+                if(b[j].pos == b[j - 1].pos)
+                    b[j].step = -b[j].step, b[j - 1].step = -b[j - 1].step;
+        }
+     
+        sort(b, b + n, cmp2);
+        for(int i = 0; i < n; i++)
+            cout << b[i].pos << " ";
+        cout << endl;
+     
+        return 0;
+    }    
+\end{lstlisting}

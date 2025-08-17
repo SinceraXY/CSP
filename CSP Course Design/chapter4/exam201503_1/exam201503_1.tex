@@ -1,0 +1,77 @@
+\section{201503-1 图像旋转}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+使用了标准库 vector： 代码使用了C++标准库中的 vector 来表示二维矩阵，这是一个合理的选择，方便了矩阵的动态创建和访问。
+
+合理的输入循环： 使用了嵌套循环，逐行逐列读取输入矩阵的元素，使得输入过程比较清晰。
+
+合理的矩阵旋转逻辑： 使用两个嵌套循环，从右向左遍历每一列，再从上到下遍历每一行，输出逆时针旋转后的结果。
+
+缺点和改进空间：
+
+未处理输入异常： 代码没有对输入进行异常处理。如果输入不符合预期，可能导致程序行为不可预测。建议添加一些输入验证机制，确保程序稳健性。
+
+\subsection{自己原创的代码的点评与注释}
+
+首先读取图像矩阵的行数和列数，然后读入图像矩阵。接着，它创建一个新的矩阵rotatedMatrix来存储逆时针旋转90度后的结果。最后，通过两层嵌套循环遍历原始矩阵，将每个元素按照旋转规则放置到新矩阵中。最终，输出旋转后的矩阵。
+
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+    #include <vector>
+    
+    using namespace std;
+    
+    int main() {
+        // 读入图像矩阵的行数和列数
+        int n, m;
+        cin >> n >> m;
+    
+        // 读入图像矩阵
+        vector<vector<int>> matrix(n, vector<int>(m));
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < m; ++j) {
+                cin >> matrix[i][j];
+            }
+        }
+    
+        // 逆时针旋转矩阵
+        // 注意：旋转后的行数变为原来的列数，列数变为原来的行数
+        vector<vector<int>> rotatedMatrix(m, vector<int>(n));
+    
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < m; ++j) {
+                // 逆时针旋转 90 度后，原矩阵的第i行第j列元素，变为旋转后矩阵的第j行第(n-1-i)列元素
+                rotatedMatrix[j][n - 1 - i] = matrix[i][j];
+            }
+        }
+    
+        // 输出旋转后的矩阵
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                cout << rotatedMatrix[i][j] << " ";
+            }
+            cout << endl;
+        }
+    
+        return 0;
+    }    
+\end{lstlisting}

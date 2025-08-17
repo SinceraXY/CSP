@@ -1,0 +1,92 @@
+\section{202006-2 稀疏向量}
+
+\subsection{题目背景}
+
+\subsection{问题描述}
+
+\subsection{输入格式}
+
+\subsection{输出格式}
+
+\subsection{样例 1 输入}
+
+\subsection{样例 1 输出}
+
+\subsection{样例解释}
+
+\subsection{评测用例规模与约定}
+
+\subsection{对讲义中代码的点评或纠错}
+ 
+优点：
+
+使用了 pair：通过使用 pair 存储键值对，提高了代码的可读性，使得代码中每个元素都有相关联的键。
+
+使用了 vector 容器：通过使用 vector 存储键值对的集合，方便了对键值对的动态管理，如添加、删除等操作。
+
+使用了 long long：在计算结果时，使用了 long long 类型来防止溢出，保证了计算的准确性。
+
+代码逻辑清晰：通过使用两个指针（i 和 j）来遍历两个向量，并根据键的大小比较来计算乘积之和，代码逻辑相对清晰，易于理解。
+
+采用了合理的循环控制：通过使用 while 循环，避免了写繁琐的 for 循环，提高了代码的简洁性。
+
+\subsection{自己原创的代码的点评与注释}
+
+通过 pair<int, int> 存储稀疏表示的向量，其中 first 表示维度的索引，second 表示在该维度上的非零值。
+
+通过两个指针 i 和 j 分别遍历向量 u 和 v 的稀疏表示，比较当前维度的索引值。
+
+根据比较结果更新内积的值。
+
+输出最终计算得到的内积。
+
+\begin{lstlisting}[language=C++]
+    #include <iostream>
+    #include <vector>
+    
+    using namespace std;
+    
+    int main() {
+        // 读取输入数据
+        int n, a, b;
+        cin >> n >> a >> b;
+    
+        // 用于存储稀疏表示的向量
+        vector<pair<int, int>> u_sparse(a);
+        vector<pair<int, int>> v_sparse(b);
+    
+        // 读取向量 u 的稀疏表示
+        for (int i = 0; i < a; ++i) {
+            cin >> u_sparse[i].first >> u_sparse[i].second;
+        }
+    
+        // 读取向量 v 的稀疏表示
+        for (int i = 0; i < b; ++i) {
+            cin >> v_sparse[i].first >> v_sparse[i].second;
+        }
+    
+        // 计算内积
+        int result = 0;
+        int i = 0, j = 0;
+    
+        while (i < a && j < b) {
+            // 如果两个稀疏向量在当前维度上有非零值
+            if (u_sparse[i].first == v_sparse[j].first) {
+                result += u_sparse[i].second * v_sparse[j].second;
+                ++i;
+                ++j;
+            } else if (u_sparse[i].first < v_sparse[j].first) {
+                // 如果向量 u 在当前维度上有非零值而向量 v 没有
+                ++i;
+            } else {
+                // 如果向量 v 在当前维度上有非零值而向量 u 没有
+                ++j;
+            }
+        }
+    
+        // 输出结果
+        cout << result << endl;
+    
+        return 0;
+    }    
+\end{lstlisting}
